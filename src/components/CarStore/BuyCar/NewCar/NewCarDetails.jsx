@@ -3,10 +3,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DetailsCarousel from "./DetailsCarousel";
 import { details, footer } from "./NewCarData";
 import CloseIcon from "@mui/icons-material/Close";
-import SpeedIcon from "@mui/icons-material/Speed";
-import { GiGearStickPattern } from "react-icons/gi";
-import { TbEngine } from "react-icons/tb";
-import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
 
 const NewCarDetails = (args) => {
   const [modal, setModal] = useState(false);

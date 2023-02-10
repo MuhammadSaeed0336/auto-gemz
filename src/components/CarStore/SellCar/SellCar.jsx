@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const SellCar = () => {
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ marginTop: "11vh" }}>
         <div className="row">
           {data.map((dat) => {
             return (

@@ -12,12 +12,15 @@ import data from "./BuyCarData";
 const BuyCar = () => {
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ marginTop: "11vh" }}>
         <div className="row">
           {data.map((dat) => {
             return (
               <>
-                <div className="col-lg-4 col-sm-12 col-md-6" style={{textAlign: "center"}}>
+                <div
+                  className="col-lg-4 col-sm-12 col-md-6"
+                  style={{ textAlign: "center" }}
+                >
                   <Card
                     className="my-2"
                     color="dark"
@@ -46,13 +49,13 @@ const BuyCar = () => {
                         {dat.description}
                       </CardText>
                       <Link to={dat.path}>
-                      <Button
-                        className="btn btn-gray"
-                        style={{ fontSize: "14px" }}
+                        <Button
+                          className="btn btn-gray"
+                          style={{ fontSize: "14px" }}
                         >
-                        {dat.button}
-                      </Button>
-                        </Link>
+                          {dat.button}
+                        </Button>
+                      </Link>
                     </CardBody>
                   </Card>
                 </div>
