@@ -5,20 +5,36 @@ import { useGetAllCarsQuery } from "../../../../features/cars/carSlice";
 
 const UsedCarCard = () => {
   const { data } = useGetAllCarsQuery();
+  console.log("===>", data?.cars[9].image);
+
+  const parseFilePath = (path) => {
+    if (path.match(/fakepath/)) {
+      // const endPath = path.split('\\')[2]
+      const newp = path.replace(
+        /C:\\fakepath\\/i,
+        `/`
+      );
+      console.log("new path", newp)
+      return newp;
+    } else {
+      return path
+    }
+  }
 
   return (
     <>
       <div className="container-fluid main" style={{ marginLeft: "1rem" }}>
         <div className="row">
-          {data?.cars.map((car) => {
+          {data?.cars.map((car,idx) => {
             return (
               <div
                 className="col-12 mt-2 d-flex"
                 style={{ border: "2px solid black" }}
+                key={idx}
               >
                 <div className="col-3">
                   <img
-                    src={car.image}
+                    src={parseFilePath(car.image)}
                     alt="loading"
                     style={{
                       backgroundColor: "white",

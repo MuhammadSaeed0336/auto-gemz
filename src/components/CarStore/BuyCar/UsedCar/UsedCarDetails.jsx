@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetOneCarQuery } from "../../../../features/cars/carSlice";
 import DetailsCarousel from "../NewCar/DetailsCarousel";
-import { footer } from "../NewCar/NewCarData";
 import SpeedIcon from "@mui/icons-material/Speed";
 import { GiGearStickPattern } from "react-icons/gi";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";

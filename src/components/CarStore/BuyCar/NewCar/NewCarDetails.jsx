@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import DetailsCarousel from "./DetailsCarousel";
 import { details, footer } from "./NewCarData";
 import CloseIcon from "@mui/icons-material/Close";
+import { Button } from "@mui/material";
 
 const NewCarDetails = (args) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
   const closeBtn = (
-    <Button className="btn-dark" onClick={toggle}>
+    <Button variant="outlined" color="error" onClick={toggle}>
       <CloseIcon />
     </Button>
   );
@@ -17,7 +18,17 @@ const NewCarDetails = (args) => {
     <>
       <div className=" container main">
         <div>
-          <Button color="secondary" size="sm" onClick={toggle}>
+          <Button
+            className="mt-1 mb-1"
+            color="error"
+            size="small"
+            variant="outlined"
+            style={{
+              color: "white",
+              boxShadow: "0px 0px 8px black",
+            }}
+            onClick={toggle}
+          >
             DETAILS
           </Button>
           <Modal centered size="xl" isOpen={modal} toggle={toggle} {...args}>
@@ -132,7 +143,7 @@ const NewCarDetails = (args) => {
                     return (
                       <>
                         <td>
-                          <div className="container row" >
+                          <div className="container row">
                             <div className=" container col-1">
                               <foo.icon
                                 style={{
@@ -144,12 +155,15 @@ const NewCarDetails = (args) => {
                                   width: "3.5rem",
                                   color: "white",
                                   borderLeft: "4px solid white",
-                                  borderRight:"2px"
+                                  borderRight: "2px",
                                 }}
                               />
                             </div>
                             <div className="col-9">
-                              <div className="row" style={{fontSize:"small",marginTop:"8px"}}>
+                              <div
+                                className="row"
+                                style={{ fontSize: "small", marginTop: "8px" }}
+                              >
                                 <div className="col-12 text-light">
                                   {foo.heading}
                                 </div>

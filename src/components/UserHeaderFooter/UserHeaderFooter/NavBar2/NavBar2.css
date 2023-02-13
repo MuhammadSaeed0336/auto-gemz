@@ -1,61 +1,62 @@
 .navbar {
-    display: block !important;
-    /* height: 11vh; */
+  display: block !important;
+  /* height: 11vh; */
 }
 
 .userimg {
-    height: 3.2rem;
-    width: 3.2rem;
+  height: 3.2rem;
+  width: 3.2rem;
 }
 .dropdown-menu {
-    text-align: center !important;
-  }
+  text-align: center !important;
+}
 .dropdown-item {
-   text-align: left !important;
+  text-align: left !important;
 }
-.userimg:hover {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
+/* .userimg:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+} */
+/* nav-tgl {
+  z-index: 1;
+} */
+
+#menu:hover {
+  /* box-shadow: inset 100px 0 0 0 red; */
+  color: rgb(242, 53, 0);
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
 }
-nav-tgl{
-    z-index: 1;
-    
+#dItem{
+  color: white;
+  font-weight: 500;
+}
+#dItem:hover{
+  background-color: rgb(35, 32, 32);
+  color: #f23500;
 }
 
-.nav-link:hover {
-    /* box-shadow: inset 100px 0 0 0 red; */
-    color: white;
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-}
-
-.nav-link:active {
+/* .nav-link:active {
     color: red;
-}
-
-
-.store{
-    text-decoration-line: underline !important; 
-    text-decoration-color: red !important;
-}
+} */
 
 @media (min-width: 992px) {
-    .Logo {
-        order: 1;
-    }
+  .Logo {
+    order: 1;
+  }
 
-    .routes {
-        order: 2;
-    }
+  .routes {
+    order: 2;
+  }
 
-    .login {
-        order: 3;
-    }
+  .login {
+    order: 3;
+  }
 }
-@media (max-width:531px) {
-    .userimg{
-        display: none !important;
-    }
+@media (max-width: 531px) {
+  .userimg {
+    display: none !important;
+  }
 }

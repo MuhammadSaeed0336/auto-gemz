@@ -1,9 +1,7 @@
 import React from 'react'
 
 const RentYourCar = () => {
-  return (
-    <div>RentYourCar</div>
-  )
+  return <div style={{ marginTop: "11vh" }}>RentYourCar</div>;
 }
 
 export default RentYourCar

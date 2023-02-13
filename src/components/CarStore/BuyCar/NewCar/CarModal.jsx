@@ -1,7 +1,7 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import {
-  Button,
   Modal,
   ModalHeader,
   ModalBody,
@@ -20,7 +20,16 @@ const NewCarModal = (args) => {
   return (
     <>
       <div>
-        <Button color="danger" onClick={toggle} className="modalButton">
+        <Button
+          color="error"
+          size="small"
+          variant="outlined"
+          style={{
+            color: "white",
+            boxShadow: "0px 0px 6px grey",
+          }}
+          onClick={toggle}
+        >
           Select Filters
         </Button>
         <Modal centered={true} isOpen={modal} toggle={toggle} {...args}>

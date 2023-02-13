@@ -67,3 +67,7 @@ ______________________________________________AUTO GEMZ_________________________
 	-FOR RENTER(service Buyer)
 		--When the rent a car finalizes the
 		-- rent time period notification (start and end)
+___________________________________________________________________________________________
+		https://images.pexels.com/photos/3947374/pexels-photo-3947374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+
+		https://images.pexels.com/photos/2847648/pexels-photo-2847648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2

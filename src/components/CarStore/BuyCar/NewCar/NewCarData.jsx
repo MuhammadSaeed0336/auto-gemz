@@ -32,6 +32,90 @@ const data = [
       "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
     price: "46,995",
   },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
+  {
+    make: "MUSTANG",
+    model: "MACH-E",
+    image:
+      "https://build.ford.com/dig/Ford/Mache/2023/HD-THUMB/Image%5B%7CFord%7CMache%7C2023%7C1%7C1.%7C100A...PG1...89J.649.RWD.99M.%5D/EXT/5/vehicle.png",
+    price: "46,995",
+  },
 ];
 
 const details = [

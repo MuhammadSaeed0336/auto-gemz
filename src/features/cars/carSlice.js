@@ -6,24 +6,27 @@ export const carApi = createApi({
   endpoints: (builder) => ({
     getAllCars: builder.query({
       query: () => `getAllCars/`,
-      providesTags: ["User"],
+      providesTags: ["Car"],
     }),
     getOneCar: builder.query({
       query: (id) => `getOneCar/${id}`,
     }),
     addUsedCar: builder.mutation({
-      query: (payload) => ({
-        url: `addUsedCar/`,
-        method: "POST",
-        body: payload,
-        transformResponse: (response, meta, arg) => {
-          return response.data;
-        },
-        transformErrorResponse: (response, meta, arg) => {
-          return response.status;
-        },
-        invalidatesTags: ["Car"],
-      }),
+      query: (payload) => {
+        // debugger
+        return {
+          url: `addUsedCar/`,
+          method: "POST",
+          body: payload,
+          transformResponse: (response, meta, arg) => {
+            return response.data;
+          },
+          transformErrorResponse: (response, meta, arg) => {
+            return response.status;
+          },
+          invalidatesTags: ["Car"],
+        };
+      },
     }),
   }),
 });

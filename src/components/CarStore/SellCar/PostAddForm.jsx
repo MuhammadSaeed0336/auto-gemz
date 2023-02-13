@@ -12,9 +12,11 @@ import DialpadIcon from "@mui/icons-material/Dialpad";
 import { useAddUsedCarMutation } from "../../../features/cars/carSlice";
 
 const PostAddForm = () => {
-  const [addCar] = useAddUsedCarMutation();
+  const [addUsedCar] = useAddUsedCarMutation();
   const handleSubmit = (event) => {
     event.preventDefault();
+    // const file = event.target.files
+    debugger;
     const {
       city: { value: city },
       carInfo: { value: carInfo },
@@ -31,7 +33,7 @@ const PostAddForm = () => {
       secondContact: { value: secondContact },
     } = event.target.elements;
 
-    addCar({
+    addUsedCar({
       city: city,
       carInfo: carInfo,
       register: register,
@@ -46,7 +48,7 @@ const PostAddForm = () => {
       contact: contact,
       secondContact: secondContact,
     });
-    console.log(city,carInfo,enginetype,image)
+    console.log(city, carInfo, enginetype, image);
   };
   return (
     <div className="main" style={{ marginTop: "11vh" }}>
