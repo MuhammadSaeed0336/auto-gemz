@@ -5,13 +5,18 @@ const db = require("./models/index");
 const config = require("./config/db.config");
 const { mongoose } = require("./models/index");
 const carRoutes = require('./routes/cars.routes');
+const feedRoutes = require('./routes/feed.routes')
+const rentRoutes = require('./routes/rent.routes')
 
 const corsOptions = {
   origin: "http://localhost:3000",
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
 app.use(carRoutes)
+app.use(feedRoutes)
+app.use(rentRoutes)
 
 mongoose.set("strictQuery", false);
 
