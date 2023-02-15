@@ -7,6 +7,8 @@ const { mongoose } = require("./models/index");
 const carRoutes = require('./routes/cars.routes');
 const feedRoutes = require('./routes/feed.routes')
 const rentRoutes = require('./routes/rent.routes')
+const userRoutes = require('./routes/user.routes')
+const loginRoutes = require('./routes/login.routes')
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(carRoutes)
 app.use(feedRoutes)
 app.use(rentRoutes)
+app.use(userRoutes)
+app.use(loginRoutes)
 
 mongoose.set("strictQuery", false);
 

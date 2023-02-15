@@ -48,7 +48,7 @@ const PostAddForm = () => {
       contact: contact,
       secondContact: secondContact,
     });
-    console.log(city, carInfo, enginetype, image);
+    // console.log(city, carInfo, enginetype, image);
   };
   return (
     <div className="main" style={{ marginTop: "11vh" }}>

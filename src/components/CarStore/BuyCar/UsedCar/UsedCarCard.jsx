@@ -5,8 +5,9 @@ import { useGetAllCarsQuery } from "../../../../features/cars/carSlice";
 
 const UsedCarCard = () => {
   const { data } = useGetAllCarsQuery();
+  
   console.log("===>", data?.cars[9].image);
-
+ 
   const parseFilePath = (path) => {
     if (path.match(/fakepath/)) {
       // const endPath = path.split('\\')[2]

@@ -21,7 +21,7 @@ const NavBar2 = ({ direction, ...args }) => {
   const toggle1 = () => setDropdownOpen1((prevState) => !prevState);
   let userNavImg =
     "https://images.pexels.com/photos/11805196/pexels-photo-11805196.jpeg?auto=compress&cs=tinysrgb&w=400";
-  const [login, setLogin] = useState(false);
+   const [login, setLogin] = useState(false);
   return (
     <div>
       <Navbar
@@ -211,20 +211,22 @@ const NavBar2 = ({ direction, ...args }) => {
                           Settings
                         </NavDropdown.Item>
                         <NavDropdown.Item>
-                          <Button
-                            variant="outlined"
-                            color="error"
-                            size="small"
-                            onClick={() => {
-                              setLogin(false);
-                            }}
-                            style={{
-                              color: "black",
-                              boxShadow: "0px 0px 6px grey",
-                            }}
-                          >
-                            Logout
-                          </Button>
+                          <NavLink to={"/login"}>
+                            <Button
+                              variant="outlined"
+                              color="error"
+                              size="small"
+                              onClick={() => {
+                                setLogin(false);
+                              }}
+                              style={{
+                                color: "black",
+                                boxShadow: "0px 0px 6px grey",
+                              }}
+                            >
+                              Logout
+                            </Button>
+                          </NavLink>
                         </NavDropdown.Item>
                       </NavDropdown>
                     </div>
@@ -241,23 +243,27 @@ const NavBar2 = ({ direction, ...args }) => {
                     }}
                   >
                     <ButtonGroup variant="outlined" color="error" size="small">
-                      <Button
-                        onClick={() => setLogin(true)}
-                        style={{
-                          color: "white",
-                          boxShadow: "0px 0px 6px #f23500",
-                        }}
-                      >
-                        Login
-                      </Button>
-                      <Button
-                        style={{
-                          color: "white",
-                          boxShadow: "0px 0px 6px #f23500",
-                        }}
-                      >
-                        Sign up
-                      </Button>
+                      <NavLink to={"/login"}>
+                        <Button
+                          // onClick={() => setLogin(true)}
+                          style={{
+                            color: "white",
+                            boxShadow: "0px 0px 6px #f23500",
+                          }}
+                        >
+                          Login
+                        </Button>
+                      </NavLink>
+                      <NavLink to={"/signup"}>
+                        <Button
+                          style={{
+                            color: "white",
+                            boxShadow: "0px 0px 6px #f23500",
+                          }}
+                        >
+                          Sign up
+                        </Button>
+                      </NavLink>
                     </ButtonGroup>
                   </div>
                 </>
@@ -270,5 +276,4 @@ const NavBar2 = ({ direction, ...args }) => {
     </div>
   );
 };
-
 export default NavBar2;
