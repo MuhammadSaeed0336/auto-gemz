@@ -17,7 +17,6 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("SignUp");
-  const [width, setWidth] = useState("6rem");
   return (
     <>
       <div
@@ -67,35 +66,35 @@ const Signup = () => {
                 type="text"
                 placeholder={nameLabel}
                 onChange={(e) => {
-                  setNameLabel(e.target.value);
+                  setName(e.target.value);
                 }}
               />
               <input
                 type="email"
                 placeholder={emailLabel}
                 onChange={(e) => {
-                  setNameLabel(e.target.value);
+                  setEmail(e.target.value);
                 }}
               />
               <input
                 type="number"
                 placeholder={contactLabel}
                 onChange={(e) => {
-                  setNameLabel(e.target.value);
+                  setContact(e.target.value);
                 }}
               />
               <input
                 type="text"
                 placeholder={addressLabel}
                 onChange={(e) => {
-                  setNameLabel(e.target.value);
+                  setAddress(e.target.value);
                 }}
               />
               <input
                 type="password"
                 placeholder={passwordLabel}
                 onChange={(e) => {
-                  setNameLabel(e.target.value);
+                  setPassword(e.target.value);
                 }}
               />
             </div>
@@ -105,7 +104,6 @@ const Signup = () => {
                 <Button
                   className="btn btn-light"
                   size="small"
-                  style={{ width: { width } }}
                   onClick={() => {
                     if (
                       name === "" &&
@@ -114,12 +112,12 @@ const Signup = () => {
                       address === "" &&
                       password === ""
                     ) {
-                      setNameLabel("Please Fill This")
+                      setNameLabel("Please Fill This");
                       setEmailLabel("Please Fill This");
                       setContactLabel("Please Enter Contact");
                       setAddressLabel("Please Fill This");
                       setPasswordLabel("Please Fill This");
-                      setButton("Something Missing")
+                      setButton("Something Missing");
                     } else if (
                       name === "" ||
                       email === "" ||

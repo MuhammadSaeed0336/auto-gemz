@@ -11,8 +11,7 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [emailLabel, setEmailLabel] = useState("Enter Email");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
-  const [button,setButton]=useState("Login")
-  const [width, setWidth] = useState("5rem");
+  const [button, setButton] = useState("Login");
   const navigate = useNavigate();
   return (
     <>
@@ -107,13 +106,12 @@ const Auth = () => {
               <Button
                 className="btn btn-light"
                 size="small"
-                style={{ width: {width} }}
                 onClick={() => {
                   if (password === "" && email === "") {
                     setEmailLabel("Please Enter Email");
                     setPasswordLabel("Enter Password First");
-                    setButton("Something is Missing")
-                  } else if (password === "" || email==="") {
+                    setButton("Something is Missing");
+                  } else if (password === "" || email === "") {
                     setEmailLabel("Please Enter Email");
                     setPasswordLabel("Please Enter Password");
                     setButton("Something Missing");
