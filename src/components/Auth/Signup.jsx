@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsGem } from "react-icons/bs";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import "./Auth.css";
@@ -6,6 +6,18 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [nameLabel, setNameLabel] = useState("Enter Full Name");
+  const [email, setEmail] = useState("");
+  const [emailLabel, setEmailLabel] = useState("Enter Email");
+  const [contact, setContact] = useState("");
+  const [contactLabel, setContactLabel] = useState("Enter Phone Number");
+  const [address, setAddress] = useState("");
+  const [addressLabel, setAddressLabel] = useState("Enter Permanent Address");
+  const [password, setPassword] = useState("");
+  const [passwordLabel, setPasswordLabel] = useState("Enter Password");
+  const [button, setButton] = useState("SignUp");
+  const [width, setWidth] = useState("6rem");
   return (
     <>
       <div
@@ -51,11 +63,41 @@ const Signup = () => {
                   <input id="upload" type="file" />
                 </div>
               </div>
-              <input type="text" placeholder="Enter Name" />
-              <input type="email" placeholder="Enter Email" />
-              <input type="number" placeholder="Enter Contact" />
-              <input type="text" placeholder="Enter Address" />
-              <input type="password" placeholder="Enter Password" />
+              <input
+                type="text"
+                placeholder={nameLabel}
+                onChange={(e) => {
+                  setNameLabel(e.target.value);
+                }}
+              />
+              <input
+                type="email"
+                placeholder={emailLabel}
+                onChange={(e) => {
+                  setNameLabel(e.target.value);
+                }}
+              />
+              <input
+                type="number"
+                placeholder={contactLabel}
+                onChange={(e) => {
+                  setNameLabel(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder={addressLabel}
+                onChange={(e) => {
+                  setNameLabel(e.target.value);
+                }}
+              />
+              <input
+                type="password"
+                placeholder={passwordLabel}
+                onChange={(e) => {
+                  setNameLabel(e.target.value);
+                }}
+              />
             </div>
 
             <div className="col-12 d-flex justify-content-center mt-2 mb-2 gap-3">
@@ -63,13 +105,51 @@ const Signup = () => {
                 <Button
                   className="btn btn-light"
                   size="small"
-                  style={{ width: "6rem" }}
+                  style={{ width: { width } }}
+                  onClick={() => {
+                    if (
+                      name === "" &&
+                      email === "" &&
+                      contact === "" &&
+                      address === "" &&
+                      password === ""
+                    ) {
+                      setNameLabel("Please Fill This")
+                      setEmailLabel("Please Fill This");
+                      setContactLabel("Please Enter Contact");
+                      setAddressLabel("Please Fill This");
+                      setPasswordLabel("Please Fill This");
+                      setButton("Something Missing")
+                    } else if (
+                      name === "" ||
+                      email === "" ||
+                      contact === "" ||
+                      address === "" ||
+                      password === ""
+                    ) {
+                      setNameLabel("Please Fill This");
+                      setEmailLabel("Please Fill This");
+                      setContactLabel("Please Enter Contact");
+                      setAddressLabel("Please Fill This");
+                      setPasswordLabel("Please Fill This");
+                      setButton("Something Missing");
+                    }
+                  }}
                 >
-                  Signup
+                  {button}
                 </Button>
               </Link>
             </div>
-              <Link to={"/login"} style={{textAlign:"center",textDecoration:"none",color:"red"}}>Already Have an Account</Link>
+            <Link
+              to={"/login"}
+              style={{
+                textAlign: "center",
+                textDecoration: "none",
+                color: "red",
+              }}
+            >
+              Already Have an Account
+            </Link>
           </div>
         </div>
       </div>

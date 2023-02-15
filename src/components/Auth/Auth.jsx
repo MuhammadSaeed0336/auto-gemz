@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsGem } from "react-icons/bs";
 import "./Auth.css";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailLabel, setEmailLabel] = useState("Enter Email");
+  const [passwordLabel, setPasswordLabel] = useState("Enter Password");
+  const [button,setButton]=useState("Login")
+  const [width, setWidth] = useState("5rem");
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -44,8 +51,26 @@ const Auth = () => {
               </h1>
             </div>
             <div className="inputs col-12">
-              <input type="email" placeholder="Enter Email" />
-              <input type="password" placeholder="Enter Password" />
+              <input
+                id="place"
+                type="email"
+                name={email}
+                value={email}
+                placeholder={emailLabel}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+              <input
+                id="place"
+                type="password"
+                name={password}
+                value={password}
+                placeholder={passwordLabel}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </div>
             <div
               className="icons col-12"
@@ -79,15 +104,26 @@ const Auth = () => {
               </Button>
             </div>
             <div className="col-12 d-flex justify-content-center mt-2 mb-2 gap-3">
-              <Link to={"/"}>
-                <Button
-                  className="btn btn-light"
-                  size="small"
-                  style={{ width: "5rem" }}
-                >
-                  Login
-                </Button>
-              </Link>
+              <Button
+                className="btn btn-light"
+                size="small"
+                style={{ width: {width} }}
+                onClick={() => {
+                  if (password === "" && email === "") {
+                    setEmailLabel("Please Enter Email");
+                    setPasswordLabel("Enter Password First");
+                    setButton("Something is Missing")
+                  } else if (password === "" || email==="") {
+                    setEmailLabel("Please Enter Email");
+                    setPasswordLabel("Please Enter Password");
+                    setButton("Something Missing");
+                  } else {
+                    navigate("/");
+                  }
+                }}
+              >
+                {button}
+              </Button>
             </div>
             <Link
               to={"/signup"}
