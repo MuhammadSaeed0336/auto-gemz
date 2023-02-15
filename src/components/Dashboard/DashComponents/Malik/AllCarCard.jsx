@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 // import "../../styles/dashboard.css";
 
 const AllCarCard = (props) => {
-  const { image, info, price, transmission, details, detailRoute } = props;
+  const { image, info, price, transmission, detailRoute } = props;
   return (
     <div
       className="container main bg-secondary"
@@ -32,8 +32,11 @@ const AllCarCard = (props) => {
         </div>
         <div className="col-2 mt-4">
           <NavLink to={detailRoute}>
-            <Button className="btn-dark">{details}</Button>
+            <Button className="btn-dark">Details</Button>
           </NavLink>
+        </div>
+        <div className="col-2 mt-4">
+          <Button className="btn-dark">Delete</Button>
         </div>
       </div>
     </div>

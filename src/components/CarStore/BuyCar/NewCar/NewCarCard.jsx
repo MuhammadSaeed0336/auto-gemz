@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, CardBody, CardTitle } from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { Button, Card, CardBody, CardTitle } from "reactstrap";
 import { data } from "./NewCarData";
-import NewCarDetails from "./NewCarDetails";
 
 const NewCarCard = () => {
   return (
@@ -30,7 +30,12 @@ const NewCarCard = () => {
                       </div>
                     </div>
                     <div className="col-12 mt-3">
-                      <NewCarDetails />
+                      <NavLink
+                        to={"/buyCar/newCar/newCarDetail"}
+                        style={{ pointerEvents: "auto" }}
+                      >
+                        <Button className="btn-light">Details</Button>
+                      </NavLink>
                     </div>
                   </CardBody>
                 </Card>

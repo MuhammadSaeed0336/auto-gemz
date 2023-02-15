@@ -23,7 +23,6 @@ const CarNew = () => {
             info={"Works Fine"}
             price={"10000"}
             transmission={"Automatic"}
-            details={"HEHE"}
             detailRoute={"/dashboard/carsNew/details"}
           />
         </div>

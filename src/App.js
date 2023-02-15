@@ -24,12 +24,13 @@ import Feedbacks from "./components/Dashboard/DashComponents/Malik/Feedbacks";
 import SideBar from "./components/Dashboard/DashComponents/SideBar";
 import TopNav from "./components/Dashboard/DashComponents/TopNav";
 import SingleCArd from "./components/Dashboard/DashComponents/SingleCArd";
+import NewCarDetails from "./components/CarStore/BuyCar/NewCar/NewCarDetails";
 function App() {
   return (
     <div className="App">
       <Routes>
         {/* Other Outer Routes */}
-        <Route path="/dashboard/carsNew/details" element={<RentCarDetails/> } />
+        <Route path="/dashboard/carsNew/details" element={<RentCarDetails />} />
         {/* Dashboard Routes */}
         <Route
           path="/dashboard"
@@ -56,6 +57,7 @@ function App() {
           <Route path="/sellCar" element={<SellCar />} />
           <Route path="/about" element={<About />} />
           <Route path="/buyCar/newCar" element={<NewCar />} />
+          <Route path="/buyCar/newCar/newCarDetail" element={<NewCarDetails />} />
           <Route path="/buyCar/usedCar" element={<UsedCar />} />
           <Route path="/buyCar/usedCar/car/:id" element={<UsedCarDetails />} />
           <Route path="/buyCar/sellCar" element={<SellCar />} />

@@ -1,186 +1,292 @@
-import React, { useState } from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import DetailsCarousel from "./DetailsCarousel";
-import { details, footer } from "./NewCarData";
-import CloseIcon from "@mui/icons-material/Close";
-import { Button } from "@mui/material";
+import React from "react";
+// import { useParams } from "react-router-dom";
+// import { useGetOneCarQuery } from "../../../../features/cars/carSlice";
+// import DetailsCarousel from "../NewCar/DetailsCarousel";
+import SpeedIcon from "@mui/icons-material/Speed";
+import { GiGearStickPattern } from "react-icons/gi";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
+import "../UsedCar/overlay.css";
+import { Badge } from "reactstrap";
 
-const NewCarDetails = (args) => {
-  const [modal, setModal] = useState(false);
+const NewCarDetails = () => {
+  // const { id } = useParams();
+  // const { data } = useGetOneCarQuery(id);
 
-  const toggle = () => setModal(!modal);
-  const closeBtn = (
-    <Button variant="outlined" color="error" onClick={toggle}>
-      <CloseIcon />
-    </Button>
-  );
   return (
     <>
-      <div className=" container main">
-        <div>
-          <Button
-            className="mt-1 mb-1"
-            color="error"
-            size="small"
-            variant="outlined"
+      <div className="bgImage" style={{ marginTop: "6vh" }}>
+        <div className="overlay">
+          <div
+            className="holder"
             style={{
-              color: "white",
-              boxShadow: "0px 0px 8px black",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            onClick={toggle}
           >
-            DETAILS
-          </Button>
-          <Modal centered size="xl" isOpen={modal} toggle={toggle} {...args}>
-            <ModalHeader
-              close={closeBtn}
-              toggle={toggle}
-              className="bg-dark text-light"
-              style={{ decorationColor: "white" }}
-            >
-              {details.map((deez) => {
-                return (
-                  <>
-                    {deez.make} {deez.model} {deez.year}
-                  </>
-                );
-              })}
-            </ModalHeader>
-            <ModalBody>
-              {details.map((det) => {
-                return (
-                  <>
-                    <div className="container">
-                      <div className="row container">
-                        <div className="col-5" style={{ marginTop: "4rem" }}>
-                          <h6>SPECIFICATIONS</h6>
-                          <hr />
-                          <div className="row container-fluid">
-                            <div className="col-6">
-                              <ul
-                                style={{
-                                  listStyleType: "none",
-                                  lineHeight: "2rem",
-                                }}
-                              >
-                                <li>
-                                  <em>Price</em>
-                                </li>
-                                <li>
-                                  <em>Fuel Type</em>
-                                </li>
-                                <li>
-                                  <em>Fuel Tank</em>
-                                </li>
-                                <li>
-                                  <em>Mileage</em>
-                                </li>
-                                <li>
-                                  <em>Transmission</em>
-                                </li>
-                                <li>
-                                  <em>Horse Power</em>
-                                </li>
-                                <li>
-                                  <em>Tyre Size</em>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="col-6">
-                              <ul
-                                style={{
-                                  listStyleType: "none",
-                                  lineHeight: "2rem",
-                                  textAlign: "right",
-                                }}
-                              >
-                                <li>
-                                  <em>{det.price}</em>
-                                </li>
-                                <li>
-                                  <em>{det.fueltype}</em>
-                                </li>
-                                <li>
-                                  <em>{det.fuelTankCapacity}</em>
-                                </li>
-                                <li>
-                                  <em>{det.mileage}</em>
-                                </li>
-                                <li>
-                                  <em>{det.transmission}</em>
-                                </li>
-                                <li>
-                                  <em>{det.horses}</em>
-                                </li>
-                                <li>
-                                  <em>{det.tyreSize}</em>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-7 container">
-                          <DetailsCarousel />
-                        </div>
-                      </div>
+            <div className="container-fluid row mt-3">
+              <div className="col-12">
+                <h3>
+                  {/* {data?.car.carInfo} {data?.car.year} */}
+                </h3>
+
+                <hr style={{ width: "100%" }} />
+              </div>
+              <div className="row">
+                <div className="col-5" style={{ textAlign: "center" }}>
+                  <h5>Specifications</h5>
+                  <div className="row container-fluid">
+                    <div className="col-6">
+                      <ul
+                        style={{
+                          listStyleType: "none",
+                          lineHeight: "2rem",
+                          textAlign: "start",
+                        }}
+                      >
+                        <li>
+                          <em>Price</em>
+                        </li>
+                        <li>
+                          <em>Fuel Type</em>
+                        </li>
+                        <li>
+                          <em>Mileage</em>
+                        </li>
+                        <li>
+                          <em>Transmission</em>
+                        </li>
+                        <li>
+                          <em>City</em>
+                        </li>
+                        <li>
+                          <em>Registered In</em>
+                        </li>
+                        <li>
+                          <em>Color</em>
+                        </li>
+                        <li>
+                          <em>Year</em>
+                        </li>
+                      </ul>
                     </div>
-                  </>
-                );
-              })}
-            </ModalBody>
-            <ModalFooter className="bg-dark">
-              <table
-                className="container"
-                style={{
-                  height: "100%",
-                  width: "100%",
-                  textAlign: "center",
-                  marginBottom: "8px",
-                }}
-              >
-                <tr>
-                  {footer.map((foo) => {
-                    return (
-                      <>
-                        <td>
-                          <div className="container row">
-                            <div className=" container col-1">
-                              <foo.icon
-                                style={{
-                                  fontSize: "3rem",
-                                  borderRadius: "50%",
-                                  padding: "0.6rem",
-                                  height: "3.5rem",
-                                  border: "1px solid white",
-                                  width: "3.5rem",
-                                  color: "white",
-                                  borderLeft: "4px solid white",
-                                  borderRight: "2px",
-                                }}
-                              />
-                            </div>
-                            <div className="col-9">
-                              <div
-                                className="row"
-                                style={{ fontSize: "small", marginTop: "8px" }}
-                              >
-                                <div className="col-12 text-light">
-                                  {foo.heading}
-                                </div>
-                                <div className="col-12 text-light">
-                                  {foo.info}
-                                </div>
+                    <div className="col-6">
+                      <ul
+                        style={{
+                          listStyleType: "none",
+                          lineHeight: "2rem",
+                          textAlign: "right",
+                        }}
+                      >
+                        <li>
+                          {/* <em>{data?.car.price}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.enginetype}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.mileage}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.transmission}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.city}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.register} In</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.color}</em> */}
+                        </li>
+                        <li>
+                          {/* <em>{data?.car.year}</em> */}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className="container portion"
+                    style={{ textAlign: "left" }}
+                  >
+                    <small style={{ fontWeight: "bold" }}>
+                      <u>DESCRIPTION</u> :{" "}
+                    </small>
+                    {/* <small>{data?.car.description}</small> */}
+                  </div>
+                  <div className=" container contacts mt-3 d-flex">
+                    <h5 className="m-1">
+                      {/* <Badge>{data?.car.contact}</Badge> */}
+                    </h5>
+                    <h5 className="m-1">
+                      {/* <Badge>{data?.car.secondContact}</Badge> */}
+                    </h5>
+                  </div>
+                </div>
+                <div className="col-7">
+                  {/* <DetailsCarousel /> */}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-12 mt-2">
+                  <table
+                    className="container"
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      textAlign: "center",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    <tr>
+                      <td>
+                        <div className="container row">
+                          <div className=" container col-1">
+                            <SpeedIcon
+                              style={{
+                                fontSize: "3rem",
+                                borderRadius: "50%",
+                                padding: "0.6rem",
+                                height: "3.5rem",
+                                border: "1px solid white",
+                                width: "3.5rem",
+                                color: "white",
+                                borderLeft: "4px solid white",
+                                borderRight: "2px",
+                              }}
+                            />
+                          </div>
+                          <div className="col-9">
+                            <div
+                              className="row"
+                              style={{
+                                fontSize: "small",
+                                marginTop: "8px",
+                              }}
+                            >
+                              <div className="col-12 text-light">
+                                MILEAGE (KM)
+                              </div>
+                              <div className="col-12 text-light">
+                                {/* {data?.car.mileage} */}
                               </div>
                             </div>
                           </div>
-                        </td>
-                      </>
-                    );
-                  })}
-                </tr>
-              </table>
-            </ModalFooter>
-          </Modal>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="container row">
+                          <div className=" container col-1">
+                            <GiGearStickPattern
+                              style={{
+                                fontSize: "3rem",
+                                borderRadius: "50%",
+                                padding: "0.6rem",
+                                height: "3.5rem",
+                                border: "1px solid white",
+                                width: "3.5rem",
+                                color: "white",
+                                borderLeft: "4px solid white",
+                                borderRight: "2px",
+                              }}
+                            />
+                          </div>
+                          <div className="col-9">
+                            <div
+                              className="row"
+                              style={{
+                                fontSize: "small",
+                                marginTop: "8px",
+                              }}
+                            >
+                              <div className="col-12 text-light">
+                                TRANSMISSION
+                              </div>
+                              <div className="col-12 text-light">
+                                {/* {data?.car.transmission} */}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="container row">
+                          <div className=" container col-1">
+                            <LocalGasStationRoundedIcon
+                              style={{
+                                fontSize: "3rem",
+                                borderRadius: "50%",
+                                padding: "0.6rem",
+                                height: "3.5rem",
+                                border: "1px solid white",
+                                width: "3.5rem",
+                                color: "white",
+                                borderLeft: "4px solid white",
+                                borderRight: "2px",
+                              }}
+                            />
+                          </div>
+                          <div className="col-9">
+                            <div
+                              className="row"
+                              style={{
+                                fontSize: "small",
+                                marginTop: "8px",
+                              }}
+                            >
+                              <div className="col-12 text-light">
+                                ENGINE TYPE
+                              </div>
+                              <div className="col-12 text-light">
+                                {/* {data?.car.enginetype} */}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="container row">
+                          <div className=" container col-1">
+                            <CalendarMonthIcon
+                              style={{
+                                fontSize: "3rem",
+                                borderRadius: "50%",
+                                padding: "0.6rem",
+                                height: "3.5rem",
+                                border: "1px solid white",
+                                width: "3.5rem",
+                                color: "white",
+                                borderLeft: "4px solid white",
+                                borderRight: "2px",
+                              }}
+                            />
+                          </div>
+                          <div className="col-9">
+                            <div
+                              className="row"
+                              style={{
+                                fontSize: "small",
+                                marginTop: "8px",
+                              }}
+                            >
+                              <div className="col-12 text-light">
+                                MODEL YEAR
+                              </div>
+                              <div className="col-12 text-light">
+                                {/* {data?.car.year} */}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
