@@ -5,19 +5,29 @@ const navLinks = [
     display: "Dashboard",
   },
   {
-    path: "/bookings",
+    path: "/dashboard/carsSale",  
     icon: "ri-taxi-line",
-    display: "Booking",
+    display: "Cars for Sale",
   },
   {
-    path: "/sell-car",
+    path: "/dashboard/carsRent",
+    icon: "ri-money-dollar-box-line",
+    display: "Rentable Cars",
+  },
+  {
+    path: "/dashboard/carsNew",
+    icon: "ri-add-box-fill",
+    display: "New Cars",
+  },
+  {
+    path: "/dashboard/users",
     icon: "ri-shopping-bag-line",
-    display: "Sell Cars",
+    display: "Users",
   },
   {
-    path: "/settings",
-    icon: "ri-settings-2-line",
-    display: "Settings",
+    path: "/dashboard/feedbacks",
+    icon: "ri-feedback-line",
+    display: "Feedbacks",
   },
 ];
 

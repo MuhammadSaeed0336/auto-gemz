@@ -11,17 +11,43 @@ import NavBar2 from "./components/UserHeaderFooter/UserHeaderFooter/NavBar2/NavB
 import About from "./components/HomeAbout/About";
 import UserProfile from "./components/UserHeaderFooter/UserHeaderFooter/UserProfile/UserProfile";
 import Settings from "./components/UserHeaderFooter/UserHeaderFooter/Settings/Settings";
-import Layout from "./components/Dashboard/DashComponents/Layout";
 import Auth from "./components/Auth/Auth";
 import Signup from "./components/Auth/Signup";
 import RentOutCar from "./components/CarStore/RentCar/RentOutCar";
 import RentYourCar from "./components/CarStore/RentCar/RentYourCar";
 import RentCarDetails from "./components/CarStore/RentCar/RentCarDetails";
+import CarNew from "./components/Dashboard/DashComponents/Malik/CarNew";
+import Selling from "./components/Dashboard/DashComponents/Malik/Selling";
+import Renting from "./components/Dashboard/DashComponents/Malik/Renting";
+import Users from "./components/Dashboard/DashComponents/Malik/Users";
+import Feedbacks from "./components/Dashboard/DashComponents/Malik/Feedbacks";
+import SideBar from "./components/Dashboard/DashComponents/SideBar";
+import TopNav from "./components/Dashboard/DashComponents/TopNav";
+import SingleCArd from "./components/Dashboard/DashComponents/SingleCArd";
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/dashboard" element={<Layout />} />
+        {/* Other Outer Routes */}
+        <Route path="/dashboard/carsNew/details" element={<RentCarDetails/> } />
+        {/* Dashboard Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <SideBar />
+              <TopNav />
+            </>
+          }
+        >
+          <Route path="/dashboard" element={<SingleCArd />} />
+          <Route path="/dashboard/carsSale" element={<Selling />} />
+          <Route path="/dashboard/carsRent" element={<Renting />} />
+          <Route path="/dashboard/carsNew" element={<CarNew />} />
+          <Route path="/dashboard/users" element={<Users />} />
+          <Route path="/dashboard/feedbacks" element={<Feedbacks />} />
+        </Route>
+        {/* Auth Routes */}
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<NavBar2 />}>
@@ -35,7 +61,10 @@ function App() {
           <Route path="/buyCar/sellCar" element={<SellCar />} />
           <Route path="/sellCar/postAdd" element={<PostAddForm />} />
           <Route path="/rentCar/rentACar" element={<RentYourCar />} />
-          <Route path="/rentCar/rentACar/rentCarDetails" element={<RentCarDetails/>} />
+          <Route
+            path="/rentCar/rentACar/rentCarDetails"
+            element={<RentCarDetails />}
+          />
           <Route path="/rentCar/rentOut" element={<RentOutCar />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/settings" element={<Settings />} />
