@@ -16,6 +16,7 @@ import Auth from "./components/Auth/Auth";
 import Signup from "./components/Auth/Signup";
 import RentOutCar from "./components/CarStore/RentCar/RentOutCar";
 import RentYourCar from "./components/CarStore/RentCar/RentYourCar";
+import RentCarDetails from "./components/CarStore/RentCar/RentCarDetails";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
           <Route path="/buyCar/sellCar" element={<SellCar />} />
           <Route path="/sellCar/postAdd" element={<PostAddForm />} />
           <Route path="/rentCar/rentACar" element={<RentYourCar />} />
+          <Route path="/rentCar/rentACar/rentCarDetails" element={<RentCarDetails/>} />
           <Route path="/rentCar/rentOut" element={<RentOutCar />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/settings" element={<Settings />} />

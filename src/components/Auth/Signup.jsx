@@ -15,8 +15,11 @@ const Signup = () => {
   const [address, setAddress] = useState("");
   const [addressLabel, setAddressLabel] = useState("Enter Permanent Address");
   const [password, setPassword] = useState("");
-  const [passwordLabel, setPasswordLabel] = useState("Enter Password");
-  const [button, setButton] = useState("SignUp");
+  const [passwordLabel, setPasswordLabel] = useState(
+    "Enter Password(Min 8 Char)"
+  );
+  const [passwordText, setPasswordText] = useState();
+  const minLength = "8";
   return (
     <>
       <div
@@ -93,11 +96,37 @@ const Signup = () => {
               <input
                 type="password"
                 placeholder={passwordLabel}
+                minLength={minLength}
                 onChange={(e) => {
                   setPassword(e.target.value);
+                  if (password.length < minLength) {
+                    setPasswordText("Minimum 8 character Password");
+                    if (
+                      password.length === minLength ||
+                      password.length > minLength
+                    ) {
+                      setPasswordText();
+                    } else {
+                      setPasswordText("Minimum 8 character Password");
+                    }
+                  }
+                  else {
+                    setPasswordText()
+                  }
+                  
                 }}
               />
             </div>
+            <span
+              style={{
+                marginTop: "-0.5rem",
+                marginBottom: "0.5rem",
+                textAlign: "center",
+                color: "red",
+              }}
+            >
+              {passwordText}
+            </span>
 
             <div className="col-12 d-flex justify-content-center mt-2 mb-2 gap-3">
               <Link to={"/signup"}>
@@ -112,12 +141,11 @@ const Signup = () => {
                       address === "" &&
                       password === ""
                     ) {
-                      setNameLabel("Please Fill This");
-                      setEmailLabel("Please Fill This");
-                      setContactLabel("Please Enter Contact");
-                      setAddressLabel("Please Fill This");
-                      setPasswordLabel("Please Fill This");
-                      setButton("Something Missing");
+                      setNameLabel("Full Name Please");
+                      setEmailLabel("Enter Valid Email");
+                      setContactLabel("Enter Phone Number");
+                      setAddressLabel("Your Permanent Address");
+                      setPasswordLabel("Enter Secure Password");
                     } else if (
                       name === "" ||
                       email === "" ||
@@ -125,16 +153,15 @@ const Signup = () => {
                       address === "" ||
                       password === ""
                     ) {
-                      setNameLabel("Please Fill This");
-                      setEmailLabel("Please Fill This");
-                      setContactLabel("Please Enter Contact");
-                      setAddressLabel("Please Fill This");
-                      setPasswordLabel("Please Fill This");
-                      setButton("Something Missing");
+                      setNameLabel("Full Name Please");
+                      setEmailLabel("Enter Valid Email");
+                      setContactLabel("Enter Phone Number");
+                      setAddressLabel("Your Permanent Address");
+                      setPasswordLabel("Enter Secure Password");
                     }
                   }}
                 >
-                  {button}
+                  Sign Up
                 </Button>
               </Link>
             </div>

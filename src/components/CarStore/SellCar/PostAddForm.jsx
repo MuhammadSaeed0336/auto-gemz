@@ -60,7 +60,7 @@ const PostAddForm = () => {
           <h2>Car information</h2>
           <small>All Fields Are Mandatory</small>
         </div>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{ color: "white" }}>
           <FormGroup row>
             <Label for="city" sm={2}>
               city
