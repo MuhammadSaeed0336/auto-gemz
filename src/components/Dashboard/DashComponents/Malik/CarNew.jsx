@@ -1,34 +1,9 @@
-import React from "react";
-import AllCarCard from "./AllCarCard";
+import React from 'react'
 
 const CarNew = () => {
   return (
-    <div
-      className="container main"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        // justifyContent: "center",
-        // alignItems: "center",
-        marginTop: "15vh",
-        height: "85vh",
-        width: "73vw",
-        marginLeft: "19rem",
-      }}
-    >
-      <div className="row">
-        <div className="col-12">
-          <AllCarCard
-            image={`https://cc-prod.scene7.com/is/image/CCProdAuthor/car-photography_P1_900x420?$pjpeg$&jpegSize=200&wid=900`}
-            info={"Works Fine"}
-            price={"10000"}
-            transmission={"Automatic"}
-            detailRoute={"/dashboard/carsNew/details"}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
+    <div>CarNew</div>
+  )
+}
 
-export default CarNew;
+export default CarNew

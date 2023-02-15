@@ -7,7 +7,7 @@ import { GiGearStickPattern } from "react-icons/gi";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
 import "../UsedCar/overlay.css";
-import { Badge } from "reactstrap";
+// import { Badge } from "reactstrap";
 
 const NewCarDetails = () => {
   // const { id } = useParams();
@@ -28,9 +28,7 @@ const NewCarDetails = () => {
           >
             <div className="container-fluid row mt-3">
               <div className="col-12">
-                <h3>
-                  {/* {data?.car.carInfo} {data?.car.year} */}
-                </h3>
+                <h3>{/* {data?.car.carInfo} {data?.car.year} */}</h3>
 
                 <hr style={{ width: "100%" }} />
               </div>
@@ -80,30 +78,14 @@ const NewCarDetails = () => {
                           textAlign: "right",
                         }}
                       >
-                        <li>
-                          {/* <em>{data?.car.price}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.enginetype}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.mileage}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.transmission}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.city}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.register} In</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.color}</em> */}
-                        </li>
-                        <li>
-                          {/* <em>{data?.car.year}</em> */}
-                        </li>
+                        <li>{/* <em>{data?.car.price}</em> */}</li>
+                        <li>{/* <em>{data?.car.enginetype}</em> */}</li>
+                        <li>{/* <em>{data?.car.mileage}</em> */}</li>
+                        <li>{/* <em>{data?.car.transmission}</em> */}</li>
+                        <li>{/* <em>{data?.car.city}</em> */}</li>
+                        <li>{/* <em>{data?.car.register} In</em> */}</li>
+                        <li>{/* <em>{data?.car.color}</em> */}</li>
+                        <li>{/* <em>{data?.car.year}</em> */}</li>
                       </ul>
                     </div>
                   </div>
@@ -125,9 +107,7 @@ const NewCarDetails = () => {
                     </h5>
                   </div>
                 </div>
-                <div className="col-7">
-                  {/* <DetailsCarousel /> */}
-                </div>
+                <div className="col-7">{/* <DetailsCarousel /> */}</div>
               </div>
               <div className="row">
                 <div className="col-12 mt-2">

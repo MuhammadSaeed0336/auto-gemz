@@ -32,7 +32,6 @@ const NewCarCard = () => {
                     <div className="col-12 mt-3">
                       <NavLink
                         to={"/buyCar/newCar/newCarDetail"}
-                        style={{ pointerEvents: "auto" }}
                       >
                         <Button className="btn-light">Details</Button>
                       </NavLink>

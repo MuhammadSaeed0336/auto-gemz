@@ -5,7 +5,7 @@ const navLinks = [
     display: "Dashboard",
   },
   {
-    path: "/dashboard/carsSale",  
+    path: "/dashboard/carsSale",
     icon: "ri-taxi-line",
     display: "Cars for Sale",
   },
