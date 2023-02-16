@@ -1,9 +1,28 @@
 import React from "react";
 import { BsGem } from "react-icons/bs";
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import {
+  useAddOneFeedbackMutation,
+  useGetAllFeedsQuery,
+} from "../../features/feedback/feedbackSlice";
 import "./About.css";
 
 const About = () => {
+  const { data } = useGetAllFeedsQuery();
+  const [addOneFeed] = useAddOneFeedbackMutation();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+      email: { value: email },
+      status: { value: status },
+      comment: { value: comment },
+    } = e.target.elements;
+    addOneFeed({
+      email: email,
+      status: status,
+      comment: comment,
+    });
+  };
   return (
     <div style={{ marginTop: "11vh" }}>
       <div className="row">
@@ -34,7 +53,7 @@ const About = () => {
               Give Us Your Feedback
             </h2>
             <div className="row ">
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <div className="row mt-4">
                   <div className="col-6">
                     <FormGroup className="d-flex justify-content-center">
@@ -52,12 +71,12 @@ const About = () => {
                   </div>
                   <div className="col-6 ">
                     <FormGroup className="d-flex justify-content-center">
-                      <Label for="feed" lg={2} style={{ color: "white" }}>
+                      <Label for="status" lg={2} style={{ color: "white" }}>
                         Feedback
                       </Label>
                       <Input
-                        id="feed"
-                        name="feed"
+                        id="status"
+                        name="status"
                         type="select"
                         style={{ width: "15rem" }}
                       >
@@ -68,7 +87,7 @@ const About = () => {
                   </div>
                   <div className="col-12">
                     <FormGroup className="d-flex mt-4 justify-content-center">
-                      <Label for="feed" lg={1} style={{ color: "white" }}>
+                      <Label for="status" lg={1} style={{ color: "white" }}>
                         Comment
                       </Label>
                       <Input
@@ -78,6 +97,9 @@ const About = () => {
                         placeholder="Describe Your Experience"
                         style={{ width: "60%", height: "5rem" }}
                       />
+                    </FormGroup>
+                    <FormGroup className="d-flex justify-content-center">
+                      <Button>Submit</Button>
                     </FormGroup>
                   </div>
                 </div>
@@ -92,24 +114,26 @@ const About = () => {
               USER FEEDBACKS
             </h2>
             <div className="row gap-5 d-flex justify-content-center mt-4 mb-5">
-              <div className="col-3">
-                <div className="container card" style={{ opacity: "0.6" }}>
-                  <div className="col-12 mt-2" style={{ textAlign: "center" }}>
-                    <h5>Email</h5>
+              {data?.data.map((dat) => {
+                return (
+                  <div className="col-3">
+                    <div className="container card" style={{ opacity: "0.6" }}>
+                      <div
+                        className="col-12 mt-2"
+                        style={{ textAlign: "center" }}
+                      >
+                        <h5>{dat.email}</h5>
+                      </div>
+                      <div className="col-12">
+                        <h6>{dat.status}</h6>
+                      </div>
+                      <div className="col-12">
+                        <p>{dat.comment}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-12">
-                    <h6>Status</h6>
-                  </div>
-                  <div className="col-12">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Repudiandae temporibus, praesentium reiciendis totam
-                      accusantium quis pariatur libero quibusdam consequuntur
-                      accusamus
-                    </p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>

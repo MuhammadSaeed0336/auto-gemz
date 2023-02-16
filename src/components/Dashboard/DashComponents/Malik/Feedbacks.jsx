@@ -1,8 +1,15 @@
 import React from "react";
-import { Button } from "reactstrap";
+import { Badge, Button } from "reactstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
+import {
+  useDeleteFeedbackMutation,
+  useGetAllFeedsQuery,
+} from "../../../../features/feedback/feedbackSlice";
 
 const Feedbacks = () => {
+  const { data } = useGetAllFeedsQuery();
+  const [deleteFeedback] = useDeleteFeedbackMutation();
+
   return (
     <>
       <div
@@ -15,32 +22,36 @@ const Feedbacks = () => {
         }}
       >
         <div className="container">
-          <h5 style={{ color: "white" }}>
-            <div className="row">
-              <div className="col-12">List of Auto Gemz Feedbacks</div>
-              <div className="col-12 mt-3">
-                <div className="container card p-2 text-dark">
-                  <div className="row gap-4 " style={{ textAlign: "center" }}>
-                    
-                    <div className="col-2 mt-4">
-                      <h6>Email</h6>
-                    </div>
-                    <div className="col-8 mt-2">
-                      <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore expedita excepturi itaque ut nihil recusandae omnis voluptas quod vel nam! Dolores atque totam alias modi! Vitae doloremque sunt quos tenetur!</h6>
-                    </div>
-                    <div className="col-1 mt-3">
-                      <Button
-                        className="btn-danger"
-                        style={{ height: "2.5rem" }}
-                      >
-                        <DeleteIcon />
-                      </Button>
+          <div className="row">
+            {data?.data.map((dat) => {
+              return (
+                <div className="col-12 mt-2">
+                  <div className="container card p-2 text-dark">
+                    <div className="row gap-4 " style={{ textAlign: "center" }}>
+                      <div className="col-3 mt-3">
+                        <h6>{dat.email}</h6>
+                        <Badge>{ dat.status}</Badge>
+                      </div>
+                      <div className="col-7 mt-2">
+                        <h6>{dat.comment}</h6>
+                      </div>
+                      <div className="col-1 mt-3">
+                        <Button
+                          className="btn-danger"
+                          style={{ height: "2.5rem" }}
+                          onClick={() => {
+                            deleteFeedback(dat._id);
+                          }}
+                        >
+                          <DeleteIcon />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </h5>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

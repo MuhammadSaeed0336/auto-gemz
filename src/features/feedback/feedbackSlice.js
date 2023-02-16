@@ -14,28 +14,28 @@ export const feedApi = createApi({
           url: `addOneFeed/`,
           method: "POST",
           body: payload,
-          transformResponse: (response, meta, arg) => {
-            return response.data;
-          },
-          transformErrorResponse: (response, meta, arg) => {
-            return response.status;
-          },
-          invalidatesTags: ["Feed"],
         };
       },
+      transformResponse: (response, meta, arg) => {
+        return response.data;
+      },
+      transformErrorResponse: (response, meta, arg) => {
+        return response.status;
+      },
+      invalidatesTags: ["Feed"],
     }),
     deleteFeedback: builder.mutation({
       query: (id) => ({
-        url: `deleteOneFeed/${id}`,
+        url: `/deleteOneFeed/${id}`,
         method: "DELETE",
-        transformResponse: (response, meta, arg) => {
-          return response.data;
-        },
-        transformErrorResponse: (response, meta, arg) => {
-          return response.status;
-        },
-        invalidatesTags: ["Feed"],
       }),
+      transformResponse: (response, meta, arg) => {
+        return response.data;
+      },
+      transformErrorResponse: (response, meta, arg) => {
+        return response.status;
+      },
+      invalidatesTags: ["Feed"],
     }),
   }),
 });

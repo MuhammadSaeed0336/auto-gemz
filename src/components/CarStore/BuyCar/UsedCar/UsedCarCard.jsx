@@ -29,7 +29,7 @@ const UsedCarCard = () => {
           {data?.cars.map((car,idx) => {
             return (
               <div
-                className="col-12 mt-2 d-flex"
+                className="col-12 mt-2 d-flex bg-light"
                 style={{ border: "2px solid black" }}
                 key={idx}
               >
