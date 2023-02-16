@@ -12,15 +12,15 @@ exports.signup = async (req, res) => {
     //toke generation
     const { name, email, password, address, phone, profileImg, posts } = req.body
     try {
-        const existingUser = await User.findOne({ email: email  })
-        if(existingUser.email){
+        const existingUser = await User.findOne({ email: email })
+        if (existingUser.email) {
             return res.status(400).send({
                 status: "error",
                 message: "email already exists"
             })
         }
         const hashedPassword = await bcrypt.hash(password, 10)
-        const result =  await db.create({
+        const result = await db.create({
             name: name,
             email: email,
             password: hashedPassword,
@@ -28,21 +28,21 @@ exports.signup = async (req, res) => {
             phone: phone,
             profileImg: profileImg,
             posts: posts
-        })  
+        })
 
-        const token = jwt.sign({email: result.email, id: result.id}, config.secret)
+        const token = jwt.sign({ email: result.email, id: result.id }, config.secret)
 
         res.status(201).json({
             user: result,
             token: token
         })
-    }catch(err) {
+    } catch (err) {
         return res.status(500).send({
             status: "error",
             message: "something went wrong, please try again later"
         })
     }
-    
+
 }
 
 exports.login = (req, res) => {
@@ -82,12 +82,14 @@ exports.login = (req, res) => {
                     const token = jwt.sign(userLoginInfo, config.secret, { expiresIn: config.tokenLife, })
                     const refreshToken = jwt.sign(userLoginInfo, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife })
                     const response = {
-                        status: "Success logged in",
                         token: token,
                         refreshToken: refreshToken,
                     }
                     tokenList[refreshToken] = response
-                    return res.status(200).send(response);
+                    return res.status(200).send({
+                        status: "Successfully logged in",
+                        data: response
+                    });
                 } else {
                     console.log('email not found');
                     return res.status(500).send({

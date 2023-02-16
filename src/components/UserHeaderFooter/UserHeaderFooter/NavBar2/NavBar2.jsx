@@ -21,7 +21,11 @@ const NavBar2 = ({ direction, ...args }) => {
   const toggle1 = () => setDropdownOpen1((prevState) => !prevState);
   let userNavImg =
     "https://images.pexels.com/photos/11805196/pexels-photo-11805196.jpeg?auto=compress&cs=tinysrgb&w=400";
-   const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false);
+  const handleLogin = () => {
+    // loginUser()
+    // setLogin(true)
+  }
   return (
     <div>
       <Navbar
@@ -245,7 +249,7 @@ const NavBar2 = ({ direction, ...args }) => {
                     <ButtonGroup variant="outlined" color="error" size="small">
                       <NavLink to={"/login"}>
                         <Button
-                          // onClick={() => setLogin(true)}
+                          onClick={handleLogin}
                           style={{
                             color: "white",
                             boxShadow: "0px 0px 6px #f23500",

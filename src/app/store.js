@@ -4,6 +4,7 @@ import { feedApi } from "../features/feedback/feedbackSlice";
 import { newCarApi } from "../features/newCars/newCarSlice";
 import { rentApi } from "../features/rent/rentSlice";
 import { userApi } from "../features/users/userSlice";
+import { authApi } from "../features/auth/authSlice";
 export const store = configureStore({
   reducer: {
     [carApi.reducerPath]: carApi.reducer,
@@ -11,6 +12,7 @@ export const store = configureStore({
     [feedApi.reducerPath]: feedApi.reducer,
     [newCarApi.reducerPath]: newCarApi.reducer,
     [rentApi.reducerPath]: rentApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -18,6 +20,7 @@ export const store = configureStore({
       .concat(userApi.middleware)
       .concat(feedApi.middleware)
       .concat(newCarApi.middleware)
-      .concat(rentApi.middleware),
+      .concat(rentApi.middleware)
+      .concat(authApi.middleware),
   devTools: true,
 });

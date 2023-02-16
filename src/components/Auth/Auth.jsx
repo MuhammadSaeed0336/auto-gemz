@@ -5,6 +5,8 @@ import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from "../../features/auth/authSlice";
+
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +14,35 @@ const Auth = () => {
   const [emailLabel, setEmailLabel] = useState("Enter Email");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
+  const [loginUser] = useLoginUserMutation({fixedCacheKey: 'token-info'})
+
   const navigate = useNavigate();
+  const handleLogin = () => {
+    if (password === "" && email === "") {
+      setEmailLabel("Please Enter Email");
+      setPasswordLabel("Enter Password First");
+      setButton("Something is Missing");
+    } else if (password === "" || email === "") {
+      setEmailLabel("Please Enter Email");
+      setPasswordLabel("Please Enter Password");
+      setButton("Something Missing");
+    } else {
+      loginUser({email, password})
+      .then(()=>{
+        /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE 
+         * YOU WANNA SHOW TO THE USER 
+         * 
+         * you can also write token to localstorage if you don't want to use mutation
+         * data sharing
+         * SAMPLE NAVIAGTION*/
+        navigate("/");
+      })
+      .catch(()=>{
+        /** NAVIGATE TO A FALLBACK ROUTE OR 
+         * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL 
+        */})
+    }
+  }
   return (
     <>
       <div
@@ -106,19 +136,7 @@ const Auth = () => {
               <Button
                 className="btn btn-light"
                 size="small"
-                onClick={() => {
-                  if (password === "" && email === "") {
-                    setEmailLabel("Please Enter Email");
-                    setPasswordLabel("Enter Password First");
-                    setButton("Something is Missing");
-                  } else if (password === "" || email === "") {
-                    setEmailLabel("Please Enter Email");
-                    setPasswordLabel("Please Enter Password");
-                    setButton("Something Missing");
-                  } else {
-                    navigate("/");
-                  }
-                }}
+                onClick={handleLogin}
               >
                 {button}
               </Button>
