@@ -9,6 +9,7 @@ const feedRoutes = require('./routes/feed.routes')
 const rentRoutes = require('./routes/rent.routes')
 const userRoutes = require('./routes/user.routes')
 const loginRoutes = require('./routes/login.routes')
+const newCarRoutes = require('./routes/newCar.routes')
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -21,6 +22,7 @@ app.use(feedRoutes)
 app.use(rentRoutes)
 app.use(userRoutes)
 app.use(loginRoutes)
+app.use(newCarRoutes)
 
 mongoose.set("strictQuery", false);
 

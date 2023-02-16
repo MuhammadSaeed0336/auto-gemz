@@ -30,6 +30,10 @@ function App() {
     <div className="App">
       <Routes>
         {/* Other Outer Routes */}
+        <Route
+          path="/dashboard/carsSale/details"
+          element={<UsedCarDetails />}
+        />
         <Route path="/dashboard/carsNew/details" element={<RentCarDetails />} />
         {/* Dashboard Routes */}
         <Route
@@ -57,7 +61,10 @@ function App() {
           <Route path="/sellCar" element={<SellCar />} />
           <Route path="/about" element={<About />} />
           <Route path="/buyCar/newCar" element={<NewCar />} />
-          <Route path="/buyCar/newCar/newCarDetail" element={<NewCarDetails />} />
+          <Route
+            path="/buyCar/newCar/newCarDetail"
+            element={<NewCarDetails />}
+          />
           <Route path="/buyCar/usedCar" element={<UsedCar />} />
           <Route path="/buyCar/usedCar/car/:id" element={<UsedCarDetails />} />
           <Route path="/buyCar/sellCar" element={<SellCar />} />

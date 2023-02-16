@@ -1,8 +1,8 @@
 const db = require("../models/index");
-const Car = db.car;
+const NewCar = db.newcar;
 
-exports.getAllCars = (req, res) => {
-  Car.find((err, cars) => {
+exports.getAllNewCars = (req, res) => {
+  NewCar.find((err, cars) => {
     if (err) {
       return res.status(500).send({
         status: "error",
@@ -16,58 +16,50 @@ exports.getAllCars = (req, res) => {
   });
 };
 
-exports.getOneCar = (req, res) => {
+exports.getOneNewCar = (req, res) => {
   const { id } = req.params;
-  Car.findById(id, (err, car) => {
+  NewCar.findById(id, (err, newcar) => {
     if (err) {
       return res.status(500).send({
         status: "error",
-        message: "Unable to Find this Car",
+        message: "Unable to Find this NewCar",
       });
     }
     return res.send({
       status: "Success",
-      car,
+      newcar,
     });
   });
 };
 
-exports.addUsedCar = async (req, res) => {
+exports.addNewCar = async (req, res) => {
   const {
     city,
     carInfo,
-    register,
     year,
     enginetype,
     transmission,
     color,
-    mileage,
     price,
     description,
     image,
-    contact,
-    secondContact,
   } = req.body;
-  const car = new Car({
+  const newcar = new NewCar({
     city,
     carInfo,
-    register,
     year,
     enginetype,
     transmission,
     color,
-    mileage,
     price,
     description,
     image,
-    contact,
-    secondContact,
   });
-  car.save((err, newRecord) => {
+  newcar.save((err, newRecord) => {
     if (err) {
       return res.status(500).send({
         status: "error",
-        message: "Unable to Add Car to database",
+        message: "Unable to Add NewCar to database",
       });
     }
     return res.send({
@@ -77,10 +69,10 @@ exports.addUsedCar = async (req, res) => {
   });
 };
 
-exports.updateUsedCarById = (req, res) => {
+exports.updateNewCar = (req, res) => {
   const { id } = req.params;
   const { body } = req;
-  Car.findByIdAndUpdate(id, body, (err, record) => {
+  NewCar.findByIdAndUpdate(id, body, (err, record) => {
     if (err) {
       return res.status(500).send({
         status: "Failed",
@@ -94,9 +86,9 @@ exports.updateUsedCarById = (req, res) => {
   });
 };
 
-exports.deleteUsedCar = (req, res) => {
+exports.deleteNewCar = (req, res) => {
   const { id } = req.params;
-  Car.findByIdAndDelete(id, (err, record) => {
+  NewCar.findByIdAndDelete(id, (err, record) => {
     if (err) {
       return res.status(500).send({
         status: "Failed",

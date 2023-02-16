@@ -1,21 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-export const rentApi = createApi({
-  reducerPath: "rentApi",
+export const newCarApi = createApi({
+  reducerPath: "newCarApi",
   baseQuery: fetchBaseQuery({ baseUrl: `http://localhost:7777/` }),
-  tagTypes: ["Rent"],
+  tagTypes: ["NewCar"],
   endpoints: (builder) => ({
-    getAllRentCars: builder.query({
-      query: () => `getAllRentCars/`,
-      providesTags: ["Rent"],
+    getAllNewCars: builder.query({
+      query: () => `getAllNewCars/`,
+      providesTags: ["NewCar"],
     }),
-    getOneRentCars: builder.query({
-      query: (id) => `getOneRentCars/${id}`,
+    getOneNewCar: builder.query({
+      query: (id) => `getOneNewCar/${id}`,
     }),
-    addRentCar: builder.mutation({
+    addNewCar: builder.mutation({
       query: (payload) => {
         // debugger
         return {
-          url: `addRentCar/`,
+          url: `addNewCar/`,
           method: "POST",
           body: payload,
           transformResponse: (response, meta, arg) => {
@@ -24,13 +24,13 @@ export const rentApi = createApi({
           transformErrorResponse: (response, meta, arg) => {
             return response.status;
           },
-          invalidatesTags: ["Rent"],
+          invalidatesTags: ["NewCar"],
         };
       },
     }),
-    deleteRentCar: builder.mutation({
+    deleteNewCar: builder.mutation({
       query: (id) => ({
-        url: `deleteRentCar/${id}`,
+        url: `deleteNewCar/${id}`,
         method: "DELETE",
         transformResponse: (response, meta, arg) => {
           return response.data;
@@ -38,12 +38,12 @@ export const rentApi = createApi({
         transformErrorResponse: (response, meta, arg) => {
           return response.status;
         },
-        invalidatesTags: ["Rent"],
+        invalidatesTags: ["NewCar"],
       }),
     }),
-    updateOneRentCar: builder.mutation({
+    updateNewCar: builder.mutation({
       query: ({ id, payload }) => ({
-        url: `/updateOneRentCar/${id}`,
+        url: `/updateNewCar/${id}`,
         method: "PUT",
         body: payload,
       }),
@@ -53,14 +53,14 @@ export const rentApi = createApi({
       transformErrorResponse: (response, meta, arg) => {
         return response.status;
       },
-      invalidatesTags: ["Rent"],
+      invalidatesTags: ["NewCar"],
     }),
   }),
 });
 export const {
-  useAddRentCarMutation,
-  useDeleteRentCarMutation,
-  useGetAllRentCarsQuery,
-  useGetOneRentCarsQuery,
-  useUpdateOneRentCarMutation,
-} = rentApi;
+    useGetAllNewCarsQuery,
+    useGetOneNewCarQuery,
+    useAddNewCarMutation,
+    useDeleteNewCarMutation,
+    useUpdateNewCarMutation
+} = newCarApi;

@@ -28,7 +28,39 @@ export const carApi = createApi({
         };
       },
     }),
+    deleteUsedCar: builder.mutation({
+      query: (id) => ({
+        url: `deleteUsedCar/${id}`,
+        method: "DELETE",
+        transformResponse: (response, meta, arg) => {
+          return response.data;
+        },
+        transformErrorResponse: (response, meta, arg) => {
+          return response.status;
+        },
+        invalidatesTags: ["Car"],
+      }),
+    }),
+    updateUsedCarById: builder.mutation({
+      query: ({ id, payload }) => ({
+        url: `/updateUsedCarById/${id}`,
+        method: "PUT",
+        body: payload,
+      }),
+      transformResponse: (response, meta, arg) => {
+        return response.data;
+      },
+      transformErrorResponse: (response, meta, arg) => {
+        return response.status;
+      },
+      invalidatesTags: ["Car"],
+    }),
   }),
 });
-export const { useGetAllCarsQuery, useGetOneCarQuery, useAddUsedCarMutation } =
-  carApi;
+export const {
+  useGetAllCarsQuery,
+  useGetOneCarQuery,
+  useAddUsedCarMutation,
+  useDeleteUsedCarMutation,
+  useUpdateUsedCarByIdMutation,
+} = carApi;
