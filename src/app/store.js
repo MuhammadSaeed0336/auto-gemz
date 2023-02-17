@@ -4,9 +4,11 @@ import { feedApi } from "../features/feedback/feedbackSlice";
 import { newCarApi } from "../features/newCars/newCarSlice";
 import { rentApi } from "../features/rent/rentSlice";
 import { userApi } from "../features/users/userSlice";
-import { authApi } from "../features/auth/authSlice";
+import authReducer, { authApi } from "../features/auth/authSlice";
+
 export const store = configureStore({
   reducer: {
+    authSlice: authReducer,
     [carApi.reducerPath]: carApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [feedApi.reducerPath]: feedApi.reducer,

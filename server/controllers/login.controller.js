@@ -82,6 +82,8 @@ exports.login = (req, res) => {
                     const token = jwt.sign(userLoginInfo, config.secret, { expiresIn: config.tokenLife, })
                     const refreshToken = jwt.sign(userLoginInfo, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife })
                     const response = {
+                        user: user.name,
+                        email: user.email,
                         token: token,
                         refreshToken: refreshToken,
                     }
