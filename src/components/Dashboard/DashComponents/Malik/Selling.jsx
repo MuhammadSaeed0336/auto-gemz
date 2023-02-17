@@ -1,10 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button} from "reactstrap";
+import { Button } from "reactstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InfoIcon from "@mui/icons-material/Info";
+import {
+  useDeleteUsedCarMutation,
+  useGetAllCarsQuery,
+} from "../../../../features/cars/carSlice";
 
 const Selling = () => {
+  const { data } = useGetAllCarsQuery();
+  const [deleteUsedCar] = useDeleteUsedCarMutation();
+  const parseFilePath = (path) => {
+    if (path.match(/fakepath/)) {
+      // const endPath = path.split('\\')[2]
+      const newp = path.replace(/C:\\fakepath\\/i, `/`);
+      // console.log("new path", newp);
+      return newp;
+    } else {
+      return path;
+    }
+  };
   return (
     <>
       <div
@@ -17,50 +33,64 @@ const Selling = () => {
         }}
       >
         <div className="container">
-          <h5 style={{ color: "white" }}>
-            <div className="row">
-              <div className="col-12">
+          <div className="row">
+            <div className="col-12">
+              <h4 style={{ color: "white" }}>
                 Here are the cars that are currently avilable for sale in Auto
                 Gemz
-              </div>
-              <div className="col-12 mt-3">
-                <div className="container card p-2 text-dark">
-                  <div className="row gap-1 " style={{ textAlign: "center" }}>
-                    <div className="col-1">
-                      <img
-                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                        alt="Loading"
-                        style={{
-                          height: "5rem",
-                          width: "5rem",
-                          borderRadius: "50%",
-                        }}
-                      />
-                    </div>
-                    <div className="col-3 mt-2">
-                      <h4>Make Model</h4>
-                      <h5>Year</h5>
-                    </div>
-                    <div className="col-2 mt-3">
-                      <h4>Transmission</h4>
-                    </div>
-                    <div className="col-2 mt-3">
-                      <h4>Fuel Type</h4>
-                    </div>
-                    <div className="col-2 mt-3">
-                      <h4>PRICE</h4>
-                    </div>
-                    <div className="col-1 mt-3 " style={{display:"flex"}}>
-                        <NavLink to={"/dashboard/carsSale/details"}>
-                          <Button className="btn-info text-light"><InfoIcon/></Button>
+              </h4>
+            </div>
+            {data?.cars.map((car) => {
+              return (
+                <div className="col-12 mt-3">
+                  <div className="container card p-2 text-dark">
+                    <div className="row gap-1 " style={{ textAlign: "center" }}>
+                      <div className="col-1">
+                        <img
+                          src={parseFilePath(car.image)}
+                          alt="Loading"
+                          style={{
+                            height: "5rem",
+                            width: "5rem",
+                            borderRadius: "50%",
+                          }}
+                        />
+                      </div>
+                      <div className="col-3 mt-3">
+                        <h6>{car.carInfo}</h6>
+                        <h6>{car.year}</h6>
+                      </div>
+                      <div className="col-2 mt-4">
+                        <h6>{car.transmission}</h6>
+                      </div>
+                      <div className="col-2 mt-4">
+                        <h6>{car.enginetype}</h6>
+                      </div>
+                      <div className="col-2 mt-4">
+                        <h6>{car.price}</h6>
+                      </div>
+                      <div className="col-1 mt-3 " style={{ display: "flex" }}>
+                        <NavLink to={`/dashboard/carsSale/${car._id}`}>
+                          <Button className="btn-info text-light">
+                            <InfoIcon />
+                          </Button>
                         </NavLink>
-                        <Button className="btn-danger" style={{height:"2.5rem"}}><DeleteIcon/></Button>
+                        <Button
+                          className="btn-danger"
+                          style={{ height: "2.5rem" }}
+                          onClick={() => {
+                            deleteUsedCar(car._id);
+                          }}
+                        >
+                          <DeleteIcon />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </h5>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

@@ -6,17 +6,17 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     loginUser: builder.mutation({
       query: (payload) => {
-        debugger
+        // debugger
         return {
           url: `login/`,
           method: "POST",
           body: payload,
           transformResponse: (response, meta, arg) => {
-            debugger
+            // debugger
             return response.data;
           },
           transformErrorResponse: (response, meta, arg) => {
-            debugger
+            // debugger
             return response.status;
           },
           invalidatesTags: ["auth"],

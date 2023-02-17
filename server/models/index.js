@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Admin = require("./admin.model");
 const Car = require("./car.model");
 const Feed = require("./feed.model");
 const NewCar = require("./newCar.model");
@@ -11,4 +12,5 @@ db.feed = Feed
 db.rent = Rent
 db.user = User
 db.newcar = NewCar
+db.admin =Admin
 module.exports = db;

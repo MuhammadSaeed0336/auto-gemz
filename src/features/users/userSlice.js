@@ -8,20 +8,20 @@ export const userApi = createApi({
   tagTypes: ["User"], //==
 
   endpoints: (builder) => ({
-    // getAllUsers: builder.query({
-    //     query: () => `getAllUsers/`,
-    //     providesTags: ["User"],//===
-    // }),
-    loginUser: builder.mutation({
-      query: (payload) => {
-        return {
-          url: `login/`,
-          method: "POST",
-          body: payload,
-          invalidatesTags: ["User"],
-        };
-      },
+    getAllUsers: builder.query({
+        query: () => `getAllUsers/`,
+        providesTags: ["User"],
     }),
+    // loginUser: builder.mutation({
+    //   query: (payload) => {
+    //     return {
+    //       url: `login/`,
+    //       method: "POST",
+    //       body: payload,
+    //       invalidatesTags: ["User"],
+    //     };
+    //   },
+    // }),
     // addUsers: builder.mutation({
     //     query: (payload) => ({
     //       url: `addUsers/`,
