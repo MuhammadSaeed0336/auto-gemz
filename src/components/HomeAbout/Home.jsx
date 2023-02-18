@@ -20,7 +20,20 @@ const Home = () => {
      * login you will see the home page
      */
 
-    return <div>You are not authorized to see this page</div>;
+    return (
+      <div
+        style={{
+          // height: "100vh",
+          // width: "100%",
+          // color: "white",
+          // display: "flex",
+          // justifyContent: "center",
+          // alignItems: "center",
+        }}
+      >
+        <h3>You are not authorized to see this page</h3>
+      </div>
+    );
   }
 
   return (

@@ -5,6 +5,7 @@ import { newCarApi } from "../features/newCars/newCarSlice";
 import { rentApi } from "../features/rent/rentSlice";
 import { userApi } from "../features/users/userSlice";
 import authReducer, { authApi } from "../features/auth/authSlice";
+import { adminApi } from "../features/admin/adminSlice";
 
 export const store = configureStore({
   reducer: {

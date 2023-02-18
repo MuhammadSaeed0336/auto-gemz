@@ -76,4 +76,4 @@ export const { setCredentials } = authSlice.actions
 export default authSlice.reducer
 export const selectCurrentUser = (state) => {
   return { name: state.auth.user, email: state.auth.email }
-};
+};  

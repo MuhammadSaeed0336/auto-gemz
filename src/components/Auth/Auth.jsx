@@ -33,7 +33,7 @@ const Auth = () => {
 
       loginUser({ email, password }, true)
         .then((response) => {
-          debugger
+          // debugger
           const { data } = response.data
           /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE 
            * YOU WANNA SHOW TO THE USER 
@@ -45,9 +45,11 @@ const Auth = () => {
           navigate("/");
         })
         .catch(() => {
+          alert("Login Failed")  
         /** NAVIGATE TO A FALLBACK ROUTE OR 
          * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL 
-        */})
+        */}
+      )
     }
   };
   return (

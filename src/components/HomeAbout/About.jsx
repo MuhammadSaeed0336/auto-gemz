@@ -114,9 +114,9 @@ const About = () => {
               USER FEEDBACKS
             </h2>
             <div className="row gap-5 d-flex justify-content-center mt-4 mb-5">
-              {data?.data.map((dat) => {
+              {data?.data.map((dat,idx) => {
                 return (
-                  <div className="col-3">
+                  <div className="col-3" key={idx}>
                     <div className="container card" style={{ opacity: "0.6" }}>
                       <div
                         className="col-12 mt-2"

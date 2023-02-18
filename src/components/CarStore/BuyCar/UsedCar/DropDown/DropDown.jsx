@@ -5,7 +5,7 @@ import { city, colors, make } from "./DropDownData";
 const DropDown = () => {
   return (
     <>
-      <div className="container row" style={{textAlign:"center"}}>
+      <div className="container row" style={{ textAlign: "center" }}>
         <div className="col-12">
           <hr />
           <h5>FILTERS</h5>
@@ -25,18 +25,20 @@ const DropDown = () => {
           <hr style={{ width: "100%" }} />
         </div>
         <div className="col-12">
-          {city.map((cit) => {
+          {city.map((cit, idx) => {
             return (
-              <Button
-                style={{
-                  fontSize: "small",
-                  marginBottom: "4px",
-                  marginTop: "4px",
-                  width: "100%",
-                }}
-              >
-                {cit.city}
-              </Button>
+              <div key={idx}>
+                <Button
+                  style={{
+                    fontSize: "small",
+                    marginBottom: "4px",
+                    marginTop: "4px",
+                    width: "100%",
+                  }}
+                >
+                  {cit.city}
+                </Button>
+              </div>
             );
           })}
         </div>
@@ -45,18 +47,20 @@ const DropDown = () => {
           <hr style={{ width: "100%" }} />
         </div>
         <div className="col-12">
-          {make.map((mak) => {
+          {make.map((mak, idx) => {
             return (
-              <Button
-                style={{
-                  fontSize: "small",
-                  marginBottom: "4px",
-                  marginTop: "4px",
-                  width: "100%",
-                }}
-              >
-                {mak.make}
-              </Button>
+              <div key={idx}>
+                <Button
+                  style={{
+                    fontSize: "small",
+                    marginBottom: "4px",
+                    marginTop: "4px",
+                    width: "100%",
+                  }}
+                >
+                  {mak.make}
+                </Button>
+              </div>
             );
           })}
         </div>
@@ -65,18 +69,20 @@ const DropDown = () => {
           <hr style={{ width: "100%" }} />
         </div>
         <div className="col-12">
-          {colors.map((col) => {
+          {colors.map((col, idx) => {
             return (
-              <Button
-                style={{
-                  fontSize: "small",
-                  marginBottom: "4px",
-                  marginTop: "4px",
-                  width: "100%",
-                }}
-              >
-                {col.color}
-              </Button>
+              <div key={idx}>
+                <Button
+                  style={{
+                    fontSize: "small",
+                    marginBottom: "4px",
+                    marginTop: "4px",
+                    width: "100%",
+                  }}
+                >
+                  {col.color}
+                </Button>
+              </div>
             );
           })}
         </div>
