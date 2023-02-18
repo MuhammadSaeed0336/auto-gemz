@@ -5,9 +5,9 @@ import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useLoginUserMutation } from "../../features/auth/authSlice";
-// import { useGetAllUsersQuery } from "../../features/users/userSlice";
-// import { useGetAllAdminsQuery } from "../../features/admin/adminSlice";
+import { setCredentials, useLazyLoginUserQuery } from "../../features/auth/authSlice";
+import { useDispatch } from "react-redux";
+
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -15,9 +15,9 @@ const Auth = () => {
   const [emailLabel, setEmailLabel] = useState("Enter Email");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
-  const [loginUser] = useLoginUserMutation({ fixedCacheKey: "token-info" });
-  // const wow = useGetAllUsersQuery();
-  // const admins = useGetAllAdminsQuery();
+
+  const dispatch = useDispatch()
+  const [loginUser, { isLoading, isError, data }] = useLazyLoginUserQuery()
 
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -30,23 +30,24 @@ const Auth = () => {
       setPasswordLabel("Please Enter Password");
       setButton("Something Missing");
     } else {
-      loginUser({ email, password })
-        .then(() => {
-          /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE
-           * YOU WANNA SHOW TO THE USER
-           *
+
+      loginUser({ email, password }, true)
+        .then((response) => {
+          debugger
+          const { data } = response.data
+          /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE 
+           * YOU WANNA SHOW TO THE USER 
+           * 
            * you can also write token to localstorage if you don't want to use mutation
            * data sharing
            * SAMPLE NAVIAGTION*/
-          console.log(email, password);
+          dispatch(setCredentials(data))
+          navigate("/");
         })
         .catch(() => {
-          /** NAVIGATE TO A FALLBACK ROUTE OR
-           * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL
-           */
-          navigate("/");
-          console.log("Wrong ok");
-        });
+        /** NAVIGATE TO A FALLBACK ROUTE OR 
+         * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL 
+        */})
     }
   };
   return (
