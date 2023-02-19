@@ -6,7 +6,6 @@ const rentSchema = new mongoose.Schema({
     engineType: String,
     color: String,
     transmission: String,
-    milage: Number,
     rentPerDay: Number,
     description: String,
     image: String,

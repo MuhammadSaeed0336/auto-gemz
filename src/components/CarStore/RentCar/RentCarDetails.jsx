@@ -1,17 +1,15 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
-// import { useGetOneCarQuery } from "../../../../features/cars/carSlice";
-import SpeedIcon from "@mui/icons-material/Speed";
 import { GiGearStickPattern } from "react-icons/gi";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
 import "../BuyCar/UsedCar/overlay.css";
 import { Badge } from "reactstrap";
+import { useGetOneRentCarsQuery } from "../../../features/rent/rentSlice";
+import { useParams } from "react-router-dom";
 
 const RentCarDetails = () => {
-//   const { id } = useParams();
-//   const { data } = useGetOneCarQuery(id);
-
+  const { id } = useParams();
+  const { data } = useGetOneRentCarsQuery(id);
   return (
     <>
       <div className="bgImage" style={{ marginTop: "6vh" }}>
@@ -27,9 +25,7 @@ const RentCarDetails = () => {
           >
             <div className="container-fluid row mt-3">
               <div className="col-12">
-                <h3>
-                  {/* {data?.car.carInfo} {data?.car.year} */}
-                </h3>
+                <h3>{data?.data.info}</h3>
 
                 <hr style={{ width: "100%" }} />
               </div>
@@ -52,22 +48,13 @@ const RentCarDetails = () => {
                           <em>Fuel Type</em>
                         </li>
                         <li>
-                          <em>Mileage</em>
-                        </li>
-                        <li>
                           <em>Transmission</em>
                         </li>
                         <li>
-                          <em>City</em>
-                        </li>
-                        <li>
-                          <em>Registered In</em>
+                          <em>Pickup Location</em>
                         </li>
                         <li>
                           <em>Color</em>
-                        </li>
-                        <li>
-                          <em>Year</em>
                         </li>
                       </ul>
                     </div>
@@ -80,44 +67,19 @@ const RentCarDetails = () => {
                         }}
                       >
                         <li>
-                                                  <em>
-                                                      {/* {data?.car.price} */}
-                                                  </em>
+                          <em>{data?.data.rentPerDay}</em>
                         </li>
                         <li>
-                                                  <em>
-                                                      {/* {data?.car.enginetype} */}
-                                                  </em>
+                          <em>{data?.data.engineType}</em>
                         </li>
                         <li>
-                          <em>
-                            {/* {data?.car.mileage} */}
-                            </em>
+                          <em>{data?.data.transmission}</em>
                         </li>
                         <li>
-                          <em>
-                            {/* {data?.car.transmission} */}
-                            </em>
+                          <em>{data?.data.pickup}</em>
                         </li>
                         <li>
-                          <em>
-                            {/* {data?.car.city} */}
-                            </em>
-                        </li>
-                        <li>
-                          <em>
-                            {/* {data?.car.register} In */}
-                            </em>
-                        </li>
-                        <li>
-                          <em>
-                            {/* {data?.car.color} */}
-                            </em>
-                        </li>
-                        <li>
-                          <em>
-                            {/* {data?.car.year} */}
-                            </em>
+                          <em>{data?.data.color}</em>
                         </li>
                       </ul>
                     </div>
@@ -129,26 +91,18 @@ const RentCarDetails = () => {
                     <small style={{ fontWeight: "bold" }}>
                       <u>DESCRIPTION</u> :{" "}
                     </small>
-                                      <small>
-                                          {/* {data?.car.description} */}
-                                      </small>
+                    <small>{data?.data.description}</small>
                   </div>
                   <div className=" container contacts mt-3 d-flex">
                     <h5 className="m-1">
-                                          <Badge>
-                                              {/* {data?.car.contact} */}
-                                          </Badge>
+                      <Badge>{data?.data.contact}</Badge>
                     </h5>
                     <h5 className="m-1">
-                                          <Badge>
-                                              {/* {data?.car.secondContact} */}
-                                          </Badge>
+                      <Badge>{data?.data.secondContact}</Badge>
                     </h5>
                   </div>
                 </div>
-                <div className="col-7">
-                  {/* <DetailsCarousel /> */}
-                </div>
+                <div className="col-7">{/* <DetailsCarousel /> */}</div>
               </div>
               <div className="row">
                 <div className="col-12 mt-2">
@@ -162,41 +116,6 @@ const RentCarDetails = () => {
                     }}
                   >
                     <tr>
-                      <td>
-                        <div className="container row">
-                          <div className=" container col-1">
-                            <SpeedIcon
-                              style={{
-                                fontSize: "3rem",
-                                borderRadius: "50%",
-                                padding: "0.6rem",
-                                height: "3.5rem",
-                                border: "1px solid white",
-                                width: "3.5rem",
-                                color: "white",
-                                borderLeft: "4px solid white",
-                                borderRight: "2px",
-                              }}
-                            />
-                          </div>
-                          <div className="col-9">
-                            <div
-                              className="row"
-                              style={{
-                                fontSize: "small",
-                                marginTop: "8px",
-                              }}
-                            >
-                              <div className="col-12 text-light">
-                                MILEAGE (KM)
-                              </div>
-                              <div className="col-12 text-light">
-                                {/* {data?.car.mileage} */}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
                       <td>
                         <div className="container row">
                           <div className=" container col-1">
@@ -226,7 +145,7 @@ const RentCarDetails = () => {
                                 TRANSMISSION
                               </div>
                               <div className="col-12 text-light">
-                                {/* {data?.car.transmission} */}
+                                {data?.data.transmission}
                               </div>
                             </div>
                           </div>
@@ -261,7 +180,7 @@ const RentCarDetails = () => {
                                 ENGINE TYPE
                               </div>
                               <div className="col-12 text-light">
-                                {/* {data?.car.enginetype} */}
+                                {data?.data.engineType}
                               </div>
                             </div>
                           </div>
@@ -295,9 +214,9 @@ const RentCarDetails = () => {
                               <div className="col-12 text-light">
                                 MODEL YEAR
                               </div>
-                              <div className="col-12 text-light">
-                                {/* {data?.car.year} */}
-                              </div>
+                              {/* <div className="col-12 text-light">
+                                {data?.data.year}
+                              </div> */}
                             </div>
                           </div>
                         </div>

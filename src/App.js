@@ -25,6 +25,7 @@ import SideBar from "./components/Dashboard/DashComponents/SideBar";
 import TopNav from "./components/Dashboard/DashComponents/TopNav";
 import SingleCArd from "./components/Dashboard/DashComponents/SingleCArd";
 import NewCarDetails from "./components/CarStore/BuyCar/NewCar/NewCarDetails";
+import UpdateCarNew from "./components/Dashboard/DashComponents/Malik/UpdateCarNew";
 function App() {
   return (
     <div className="App">
@@ -32,6 +33,7 @@ function App() {
         {/* Other Outer Routes */}
         <Route path="/dashboard/carsSale/:id" element={<UsedCarDetails />} />
         <Route path="/dashboard/carsNew/:id" element={<NewCarDetails />} />
+        <Route path="/dashboard/carsNew/updateCarNew/:id" element={<UpdateCarNew />} />
         {/* Dashboard Routes */}
         <Route
           path="/dashboard"
@@ -68,7 +70,7 @@ function App() {
           <Route path="/sellCar/postAdd" element={<PostAddForm />} />
           <Route path="/rentCar/rentACar" element={<RentYourCar />} />
           <Route
-            path="/rentCar/rentACar/rentCarDetails"
+            path="/rentCar/rentACar/rentCarDetails/:id"
             element={<RentCarDetails />}
           />
           <Route path="/rentCar/rentOut" element={<RentOutCar />} />

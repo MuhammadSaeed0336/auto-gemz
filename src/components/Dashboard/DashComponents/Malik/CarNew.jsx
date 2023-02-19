@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InfoIcon from "@mui/icons-material/Info";
@@ -8,8 +8,10 @@ import {
   useDeleteNewCarMutation,
   useGetAllNewCarsQuery,
 } from "../../../../features/newCars/newCarSlice";
+import UpdateIcon from "@mui/icons-material/Update";
 
 const CarNew = () => {
+  const navigate=useNavigate()
   const { data } = useGetAllNewCarsQuery();
   const [deleteNewCar] = useDeleteNewCarMutation();
   const parseFilePath = (path) => {
@@ -43,9 +45,9 @@ const CarNew = () => {
             </div>
             <AddCarNew />
 
-            {data?.cars.map((car, idx) => {
+            {data?.cars.map((car) => {
               return (
-                <div className="col-12 mt-3" key={idx}>
+                <div className="col-12 mt-3" key={car._id}>
                   <div className="container card p-2 text-dark">
                     <div className="row gap-1 " style={{ textAlign: "center" }}>
                       <div className="col-1">
@@ -86,6 +88,13 @@ const CarNew = () => {
                           }}
                         >
                           <DeleteIcon />
+                        </Button>
+                        <Button
+                          className="btn-success"
+                          style={{ height: "2.5rem" }}
+                          onClick={() => { navigate(`/dashboard/carsNew/updateCarNew/${car._id}`);}}
+                        >
+                          <UpdateIcon />
                         </Button>
                       </div>
                     </div>

@@ -61,6 +61,6 @@ export const {
   useAddRentCarMutation,
   useDeleteRentCarMutation,
   useGetAllRentCarsQuery,
-  useGetOneRentCarsQuery,
   useUpdateOneRentCarMutation,
+  useGetOneRentCarsQuery
 } = rentApi;

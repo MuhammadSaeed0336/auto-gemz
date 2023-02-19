@@ -70,15 +70,16 @@ exports.addNewCar = async (req, res) => {
 exports.updateNewCar = (req, res) => {
   const { id } = req.params;
   const { body } = req;
-  NewCar.findByIdAndUpdate(id, body, (err, record) => {
+  console.log(id, body);
+  NewCar.findOneAndUpdate({ _id: id }, body, (err, record) => {
     if (err) {
       return res.status(500).send({
-        status: "Failed",
-        message: "Unable to Update records",
+        status: "error",
+        message: "unable to update requested record",
       });
     }
     return res.send({
-      status: "Updated",
+      status: "success, updated record was",
       data: record,
     });
   });

@@ -9,47 +9,40 @@ import {
   Label,
 } from "reactstrap";
 import DialpadIcon from "@mui/icons-material/Dialpad";
-// import { useAddUsedCarMutation } from "../../../features/cars/carSlice";
+import { useAddRentCarMutation } from "../../../features/rent/rentSlice";
 
 const RentOutCar = () => {
-  // const [addUsedCar] = useAddUsedCarMutation();
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // const file = event.target.files
-  //   debugger;
-  //   const {
-  //     city: { value: city },
-  //     carInfo: { value: carInfo },
-  //     register: { value: register },
-  //     year: { value: year },
-  //     enginetype: { value: enginetype },
-  //     transmission: { value: transmission },
-  //     color: { value: color },
-  //     mileage: { value: mileage },
-  //     price: { value: price },
-  //     description: { value: description },
-  //     image: { value: image },
-  //     contact: { value: contact },
-  //     secondContact: { value: secondContact },
-  //   } = event.target.elements;
+  const [addRentCar] = useAddRentCarMutation();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    debugger;
+    const {
+      pickup: { value: pickup },
+      info: { value: info },
+      engineType: { value: engineType },
+      transmission: { value: transmission },
+      color: { value: color },
+      rentPerDay: { value: rentPerDay },
+      description: { value: description },
+      image: { value: image },
+      contact: { value: contact },
+      secondContact: { value: secondContact },
+    } = event.target.elements;
 
-  //   addUsedCar({
-  //     city: city,
-  //     carInfo: carInfo,
-  //     register: register,
-  //     year: year,
-  //     enginetype: enginetype,
-  //     transmission: transmission,
-  //     color: color,
-  //     mileage: mileage,
-  //     price: price,
-  //     description: description,
-  //     image: image,
-  //     contact: contact,
-  //     secondContact: secondContact,
-  //   });
-  //   // console.log(city, carInfo, enginetype, image);
-  // };
+    addRentCar({
+      pickup: pickup,
+      info: info,
+      engineType: engineType,
+      transmission: transmission,
+      color: color,
+      rentPerDay: rentPerDay,
+      description: description,
+      image: image,
+      contact: contact,
+      secondContact: secondContact,
+    });
+    // console.log(pickup, info, engineType, image);
+  };
   return (
     <div className="main" style={{ marginTop: "11vh" }}>
       <div className="container mb-4">
@@ -60,42 +53,39 @@ const RentOutCar = () => {
           <h2>Car information</h2>
           <small>All Fields Are Mandatory</small>
         </div>
-        <Form style={{ color: "white" }}>
+        <Form style={{ color: "white" }} onSubmit={handleSubmit}>
           <FormGroup row>
-            <Label for="address" sm={2}>
-              address
-            </Label>
-            <Col sm={10}>
-              <Input id="address" name="address" placeholder="Enter Pickup Location" type="text"/>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="carInfo" sm={2}>
-              Car carInfo
+            <Label for="pickup" sm={2}>
+              pickup
             </Label>
             <Col sm={10}>
               <Input
-                id="carInfo"
-                name="carInfo"
+                id="pickup"
+                name="pickup"
+                placeholder="Enter Pickup Location"
+                type="text"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="info" sm={2}>
+              Car info
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="info"
+                name="info"
                 placeholder="Make/Model/Version"
                 type="text"
               />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="year" sm={2}>
-              year
-            </Label>
-            <Col sm={10}>
-              <Input id="year" placeholder="Enter Model Year" name="year" type="text" />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="enginetype" sm={2}>
+            <Label for="engineType" sm={2}>
               Engine Type
             </Label>
             <Col sm={10}>
-              <Input id="enginetype" name="enginetype" type="select">
+              <Input id="engineType" name="engineType" type="select">
                 <optgroup label="Fuel">
                   <option>Diesel</option>
                   <option>Petrol</option>
@@ -133,7 +123,7 @@ const RentOutCar = () => {
           </FormGroup>
           <FormGroup row>
             <Label for="ren" sm={2}>
-              Rent Per Day (Rs)
+              rentPerDay Per Day (Rs)
             </Label>
             <Col sm={10}>
               <InputGroup id="ren">
@@ -142,11 +132,11 @@ const RentOutCar = () => {
                 </Button>
                 <Input
                   type="text"
-                  id="rent"
-                  name="rent"
-                  placeholder="rent"
+                  id="rentPerDay"
+                  name="rentPerDay"
+                  placeholder="rentPerDay"
                 />
-              </InputGroup> 
+              </InputGroup>
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -166,7 +156,12 @@ const RentOutCar = () => {
             </Label>
             <Col sm={10}>
               <InputGroup id="img">
-                <Input id="image" name="image" type="file" />
+                <Input
+                  id="image"
+                  name="image"
+                  type="file"
+                  style={{ zIndex: "100" }}
+                />
               </InputGroup>
             </Col>
           </FormGroup>
