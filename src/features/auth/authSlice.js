@@ -23,8 +23,8 @@ export const authApi = createApi({
         
         // headers.append({ 'x-access-token': token })
       // }
-      debugger
-    }
+      // debugger
+    } 
   }),
   tagTypes: ["userCreds"],
   endpoints: (builder) => ({

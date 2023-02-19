@@ -9,7 +9,7 @@ import {
   // setCredentials,
   useLazyLoginUserQuery,
 } from "../../features/auth/authSlice";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ const Auth = () => {
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [loginUser, { isLoading, isError, data }] = useLazyLoginUserQuery();
 
   const navigate = useNavigate();
