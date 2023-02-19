@@ -9,6 +9,7 @@ import {
   // setCredentials,
   useLazyLoginUserQuery,
 } from "../../features/auth/authSlice";
+import { useGetAllAdminsQuery, useLazyLoginAdminQuery } from "../../features/admin/adminSlice";
 // import { useDispatch } from "react-redux";
 
 const Auth = () => {
@@ -17,9 +18,11 @@ const Auth = () => {
   const [emailLabel, setEmailLabel] = useState("Enter Email");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
+  const admin = useGetAllAdminsQuery;
 
   // const dispatch = useDispatch();
-  const [loginUser, { isLoading, isError, data }] = useLazyLoginUserQuery();
+  const [loginUser] = useLazyLoginUserQuery();
+  const [adminLogin] = useLazyLoginAdminQuery()
 
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -38,8 +41,27 @@ const Auth = () => {
         localStorage.setItem("token", token);
         console.log(localStorage.getItem("token"));
         console.log(user);
-        navigate("/");
+        navigate("/")
+
+        // console.log(admin.data);
+        // if (
+        //   (admin.data?.data.email === email) &
+        //   (admin.data?.data.password === password)
+        // ) {
+        //   navigate("/dashboard");
+        // } else {
+        //   navigate("/");
+        // }
       });
+      adminLogin({ email, password }, true).then((response) => {
+        const { token } = response.data
+        const { user } = response.data
+        localStorage.setItem("token", token);
+        console.log(localStorage.getItem("token"));
+        console.log(user);
+        navigate("/dashboard")
+
+      })
 
       // loginUser({ email, password }, true)
       //   .then((response) => {

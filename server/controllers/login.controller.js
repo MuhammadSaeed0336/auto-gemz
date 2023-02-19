@@ -1,6 +1,6 @@
 const db = require("../models/index");
 const User = db.user
-const tokenList = {}
+// const tokenList = {}
 const jwt = require('jsonwebtoken')
 const config = require('../config/auth.config')
 const bcrypt = require('bcryptjs')

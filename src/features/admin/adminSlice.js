@@ -8,6 +8,25 @@ export const adminApi = createApi({
       query: () => `getAllAdmins/`,
       providesTags: ["Admin"],
     }),
+    loginAdmin: builder.query({
+      query: (payload) => {
+        // debugger
+        return {
+          url: `adminLogin/`,
+          method: "POST",
+          body: payload,
+          transformResponse: (response, meta, arg) => {
+            // debugger
+            return response.data;
+          },
+          transformErrorResponse: (response, meta, arg) => {
+            // debugger
+            return response.status;
+          },
+        };
+      },
+      providesTags: ["Admin"],
+    }),
   }),
 });
-export const {useGetAllAdminsQuery} = adminApi;
+export const {useGetAllAdminsQuery, useLazyLoginAdminQuery} = adminApi;
