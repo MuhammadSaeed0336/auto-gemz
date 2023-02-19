@@ -40,9 +40,9 @@ const Selling = () => {
                 Gemz
               </h4>
             </div>
-            {data?.cars.map((car) => {
+            {data?.cars.map((car, idx) => {
               return (
-                <div className="col-12 mt-3">
+                <div className="col-12 mt-3" key={idx}>
                   <div className="container card p-2 text-dark">
                     <div className="row gap-1 " style={{ textAlign: "center" }}>
                       <div className="col-1">

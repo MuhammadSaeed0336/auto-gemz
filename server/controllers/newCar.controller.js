@@ -18,7 +18,7 @@ exports.getAllNewCars = (req, res) => {
 
 exports.getOneNewCar = (req, res) => {
   const { id } = req.params;
-  NewCar.findById(id, (err, newcar) => {
+  NewCar.findById(id, (err, car) => {
     if (err) {
       return res.status(500).send({
         status: "error",
@@ -27,7 +27,7 @@ exports.getOneNewCar = (req, res) => {
     }
     return res.send({
       status: "Success",
-      newcar,
+      car,
     });
   });
 };
