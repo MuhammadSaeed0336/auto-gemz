@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InfoIcon from "@mui/icons-material/Info";
+import AddCarNew from "./AddCarNew";
 
 const CarNew = () => {
   return (
@@ -23,6 +24,8 @@ const CarNew = () => {
                 Here are the cars that are currently avilable for sale in Auto
                 Gemz
               </div>
+              {/* <Button className="btn btn-light mt-3" style={{width:"8rem", fontWeight:"bold", textTransform:"uppercase"}}>Add Car</Button> */}
+              <AddCarNew />
               <div className="col-12 mt-3">
                 <div className="container card p-2 text-dark">
                   <div className="row gap-1 " style={{ textAlign: "center" }}>
@@ -51,7 +54,7 @@ const CarNew = () => {
                       <h4>PRICE</h4>
                     </div>
                     <div className="col-1 mt-3 " style={{ display: "flex" }}>
-                      <NavLink to={"/dashboard/carsSale/details"}>
+                      <NavLink to={"/dashboard/carsNew/details"}>
                         <Button className="btn-info text-light">
                           <InfoIcon />
                         </Button>

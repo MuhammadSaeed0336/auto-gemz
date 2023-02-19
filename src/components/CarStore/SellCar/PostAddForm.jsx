@@ -16,7 +16,7 @@ const PostAddForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // const file = event.target.files
-    debugger;
+    // debugger;
     const {
       city: { value: city },
       carInfo: { value: carInfo },
@@ -214,7 +214,12 @@ const PostAddForm = () => {
             </Label>
             <Col sm={10}>
               <InputGroup id="img">
-                <Input id="image" name="image" type="file" />
+                <Input
+                  id="image"
+                  name="image"
+                  type="file"
+                  style={{ zIndex: "100" }}
+                />
               </InputGroup>
             </Col>
           </FormGroup>

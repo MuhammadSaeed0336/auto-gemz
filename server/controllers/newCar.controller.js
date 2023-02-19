@@ -34,7 +34,6 @@ exports.getOneNewCar = (req, res) => {
 
 exports.addNewCar = async (req, res) => {
   const {
-    city,
     carInfo,
     year,
     enginetype,
@@ -45,7 +44,6 @@ exports.addNewCar = async (req, res) => {
     image,
   } = req.body;
   const newcar = new NewCar({
-    city,
     carInfo,
     year,
     enginetype,
