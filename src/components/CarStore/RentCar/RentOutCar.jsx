@@ -10,9 +10,11 @@ import {
 } from "reactstrap";
 import DialpadIcon from "@mui/icons-material/Dialpad";
 import { useAddRentCarMutation } from "../../../features/rent/rentSlice";
+import { useNavigate } from "react-router-dom";
 
 const RentOutCar = () => {
   const [addRentCar] = useAddRentCarMutation();
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     debugger;
@@ -41,7 +43,8 @@ const RentOutCar = () => {
       contact: contact,
       secondContact: secondContact,
     });
-    // console.log(pickup, info, engineType, image);
+    navigate("/sellCar");
+    alert("Successfully Rented Out");
   };
   return (
     <div className="main" style={{ marginTop: "11vh" }}>

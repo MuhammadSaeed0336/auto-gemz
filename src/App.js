@@ -33,7 +33,11 @@ function App() {
         {/* Other Outer Routes */}
         <Route path="/dashboard/carsSale/:id" element={<UsedCarDetails />} />
         <Route path="/dashboard/carsNew/:id" element={<NewCarDetails />} />
-        <Route path="/dashboard/carsNew/updateCarNew/:id" element={<UpdateCarNew />} />
+        <Route
+          path="/dashboard/carsNew/updateCarNew/:id"
+          element={<UpdateCarNew />}
+        />
+        <Route path="/dashboard/carsRent/:id" element={<RentCarDetails />} />
         {/* Dashboard Routes */}
         <Route
           path="/dashboard"
