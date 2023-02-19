@@ -4,12 +4,12 @@ import { feedApi } from "../features/feedback/feedbackSlice";
 import { newCarApi } from "../features/newCars/newCarSlice";
 import { rentApi } from "../features/rent/rentSlice";
 import { userApi } from "../features/users/userSlice";
-import authReducer, { authApi } from "../features/auth/authSlice";
+import  { authApi } from "../features/auth/authSlice";
 import { adminApi } from "../features/admin/adminSlice";
-
+// authReducer,
 export const store = configureStore({
   reducer: {
-    authSlice: authReducer,
+    // authSlice: authReducer,
     [carApi.reducerPath]: carApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [feedApi.reducerPath]: feedApi.reducer,
@@ -22,7 +22,7 @@ export const store = configureStore({
     getDefaultMiddleware()
       .concat(carApi.middleware)
       .concat(userApi.middleware)
-      .concat(feedApi.middleware)
+      .concat(feedApi.middleware) 
       .concat(newCarApi.middleware)
       .concat(rentApi.middleware)
       .concat(authApi.middleware)

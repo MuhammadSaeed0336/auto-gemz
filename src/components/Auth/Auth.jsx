@@ -5,9 +5,11 @@ import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { setCredentials, useLazyLoginUserQuery } from "../../features/auth/authSlice";
+import {
+  // setCredentials,
+  useLazyLoginUserQuery,
+} from "../../features/auth/authSlice";
 import { useDispatch } from "react-redux";
-
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -16,8 +18,8 @@ const Auth = () => {
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
 
-  const dispatch = useDispatch()
-  const [loginUser, { isLoading, isError, data }] = useLazyLoginUserQuery()
+  const dispatch = useDispatch();
+  const [loginUser, { isLoading, isError, data }] = useLazyLoginUserQuery();
 
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -30,26 +32,35 @@ const Auth = () => {
       setPasswordLabel("Please Enter Password");
       setButton("Something Missing");
     } else {
+      loginUser({ email, password }, true).then((response) => {
+        const { token } = response.data;
+        const { user } = response.data;
+        localStorage.setItem("token", token);
+        console.log(localStorage.getItem("token"));
+        console.log(user);
+        navigate("/");
+      });
 
-      loginUser({ email, password }, true)
-        .then((response) => {
-          // debugger
-          const { data } = response.data
-          /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE 
-           * YOU WANNA SHOW TO THE USER 
-           * 
+      // loginUser({ email, password }, true)
+      //   .then((response) => {
+      //     // debugger
+      //     const { data } = response.data;
+      //     localStorage.setItem("token", data.token)
+      /** NAVIGATE TO DASHBOARD OR WHATEVER THE PROTECTED ROUTE
+           * YOU WANNA SHOW TO THE USER
+           *
            * you can also write token to localstorage if you don't want to use mutation
            * data sharing
-           * SAMPLE NAVIAGTION*/
-          dispatch(setCredentials(data))
-          navigate("/");
-        })
-        .catch(() => {
-          alert("Login Failed")  
-        /** NAVIGATE TO A FALLBACK ROUTE OR 
-         * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL 
-        */}
-      )
+        //    * SAMPLE NAVIAGTION*/
+      //   dispatch(setCredentials(data));
+      //   navigate("/");
+      // })
+      // .catch(() => {
+      //   alert("Login Failed");
+      /** NAVIGATE TO A FALLBACK ROUTE OR
+       * SHOW A MESSAGE SAYING LOGIN WAS NOT SUCCESSFUL
+       */
+      // });
     }
   };
   return (
