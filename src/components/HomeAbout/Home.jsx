@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "reactstrap";
 import BuyCar from "../CarStore/BuyCar/BuyCar";
 
 const Home = () => {
+  const navigate = useNavigate();
   /**
    * at this point your have complete info of user object
    * from the server including his tokens. You can use it here
@@ -40,7 +43,7 @@ const Home = () => {
   return (
     <div style={{ marginTop: "11vh" }}>
       <BuyCar />
-      {/* <Button
+      <Button
         className="btn btn-dark"
         onClick={() => {
           localStorage.clear();
@@ -49,7 +52,7 @@ const Home = () => {
         }}
       >
         Logout
-      </Button> */}
+      </Button>
     </div>
   );
 };

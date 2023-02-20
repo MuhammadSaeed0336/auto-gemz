@@ -97,7 +97,7 @@ const NavBar2 = ({ direction, ...args }) => {
                     className="mx-2"
                     to="/sellCar"
                   >
-                    SELL
+                    OFFER SERVICES
                   </Nav.Link>
                   <div className="d-flex">
                     <Dropdown
@@ -119,7 +119,7 @@ const NavBar2 = ({ direction, ...args }) => {
                         <NavLink to={"/rentCar/rentACar"}>
                           <DropdownItem id="dItem">Rent a Car</DropdownItem>
                         </NavLink>
-                        <NavLink to={"/rentCar/rentOut"}>
+                        <NavLink to={"/sellCar"}>
                           <DropdownItem id="dItem">Rent Out</DropdownItem>
                         </NavLink>
                       </DropdownMenu>

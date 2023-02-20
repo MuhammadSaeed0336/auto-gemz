@@ -9,9 +9,11 @@ import {
   List,
 } from "reactstrap";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SellCar = () => {
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -73,19 +75,24 @@ const SellCar = () => {
                       </List>
                       <small>{dat.info}</small>
                     </CardText>
-                    <Link to={"/sellCar/postAdd"}>
-                      <Button
-                        color="error"
-                        size="small"
-                        variant="outlined"
-                        style={{
-                          color: "white",
-                          boxShadow: "0px 0px 6px grey",
-                        }}
-                      >
-                        {dat.button}
-                      </Button>
-                    </Link>
+                    <Button
+                      color="error"
+                      size="small"
+                      variant="outlined"
+                      style={{
+                        color: "white",
+                        boxShadow: "0px 0px 6px grey",
+                      }}
+                      onClick={() => {
+                        if (token) {
+                          navigate(dat.link);
+                        } else if (!token) {
+                          navigate("/unauthorized");
+                        }
+                      }}
+                    >
+                      {dat.button}
+                    </Button>
                   </CardBody>
                 </Card>
               </div>
