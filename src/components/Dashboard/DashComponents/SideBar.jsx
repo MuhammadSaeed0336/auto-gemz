@@ -1,12 +1,14 @@
 import React from "react";
-import { NavLink, Outlet} from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import navlinks from "../assets/navLinks";
 import "../styles/dashboard.css";
 import { BsGem } from "react-icons/bs";
 import Unauthorized from "../../Auth/Unauthorized";
+import { Button } from "@mui/material";
 
 const SideBar = () => {
-  const adminToken = localStorage.getItem("adminToken")
+  const navigate = useNavigate();
+  const adminToken = localStorage.getItem("adminToken");
   if (adminToken) {
     return (
       <>
@@ -40,10 +42,18 @@ const SideBar = () => {
                 ))}
               </ul>
             </div>
-            <div className="sidebar_bottom">
-              <span>
-                <i className="ri-logout-circle-r-line"></i> Logout
-              </span>
+            <div className="sidebar_bottom mb-3" style={{ marginLeft: "2rem" }}>
+              <i className="ri-logout-circle-r-line"> </i>
+              <Button
+                variant="contained"
+                color="error"
+                onClick={() => {
+                  localStorage.clear();
+                  navigate("/login");
+                }}
+              >
+                Logout
+              </Button>
             </div>
           </div>
         </div>
@@ -53,9 +63,9 @@ const SideBar = () => {
   } else if (!adminToken) {
     return (
       <>
-        <Unauthorized/>
+        <Unauthorized />
       </>
-    )
+    );
   }
 };
 

@@ -1,10 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "reactstrap";
 import BuyCar from "../CarStore/BuyCar/BuyCar";
 
 const Home = () => {
-  const navigate = useNavigate();
   /**
    * at this point your have complete info of user object
    * from the server including his tokens. You can use it here
@@ -39,30 +36,22 @@ const Home = () => {
   //     </div>
   //   );
   // }
-  const tok = localStorage.getItem("token");
-  if (tok) {
-    return (
-      <div style={{ marginTop: "11vh" }}>
-        <BuyCar />
-        <Button
-          className="btn btn-dark"
-          onClick={() => {
-            localStorage.clear();
-            navigate("/login");
-            // window.location.reload(false)
-          }}
-        >
-          Logout
-        </Button>
-      </div>
-    );
-  } else if (!tok) {
-    return (
-      <>
-        <h1 style={{ marginTop: "11vh" }}>No Access</h1>
-      </>
-    );
-  }
+
+  return (
+    <div style={{ marginTop: "11vh" }}>
+      <BuyCar />
+      {/* <Button
+        className="btn btn-dark"
+        onClick={() => {
+          localStorage.clear();
+          navigate("/login");
+          // window.location.reload(false)
+        }}
+      >
+        Logout
+      </Button> */}
+    </div>
+  );
 };
 
 export default Home;
