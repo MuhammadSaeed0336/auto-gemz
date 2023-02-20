@@ -9,7 +9,7 @@ import {
   // setCredentials,
   useLazyLoginUserQuery,
 } from "../../features/auth/authSlice";
-import { useGetAllAdminsQuery, useLazyLoginAdminQuery } from "../../features/admin/adminSlice";
+import { useLazyLoginAdminQuery } from "../../features/admin/adminSlice";
 // import { useDispatch } from "react-redux";
 
 const Auth = () => {
@@ -18,7 +18,6 @@ const Auth = () => {
   const [emailLabel, setEmailLabel] = useState("Enter Email");
   const [passwordLabel, setPasswordLabel] = useState("Enter Password");
   const [button, setButton] = useState("Login");
-  const admin = useGetAllAdminsQuery;
 
   // const dispatch = useDispatch();
   const [loginUser] = useLazyLoginUserQuery();
@@ -56,7 +55,7 @@ const Auth = () => {
       adminLogin({ email, password }, true).then((response) => {
         const { token } = response.data
         const { user } = response.data
-        localStorage.setItem("token", token);
+        localStorage.setItem("adminToken", token);
         console.log(localStorage.getItem("token"));
         console.log(user);
         navigate("/dashboard")

@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
-import { useSelector } from "react-redux";
 import BuyCar from "../CarStore/BuyCar/BuyCar";
 
 const Home = () => {

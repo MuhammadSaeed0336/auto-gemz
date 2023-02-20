@@ -26,6 +26,7 @@ import TopNav from "./components/Dashboard/DashComponents/TopNav";
 import SingleCArd from "./components/Dashboard/DashComponents/SingleCArd";
 import NewCarDetails from "./components/CarStore/BuyCar/NewCar/NewCarDetails";
 import UpdateCarNew from "./components/Dashboard/DashComponents/Malik/UpdateCarNew";
+import Unauthorized from "./components/Auth/Unauthorized";
 function App() {
   return (
     <div className="App">
@@ -58,6 +59,7 @@ function App() {
         {/* Auth Routes */}
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/" element={<NavBar2 />}>
           <Route path="/" element={<Home />} />
           <Route path="/buyCar" element={<BuyCar />} />
