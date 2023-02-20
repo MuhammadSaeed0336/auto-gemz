@@ -5,7 +5,7 @@ import { BsGem } from "react-icons/bs";
 import { NavDropdown } from "react-bootstrap";
 import { Button, ButtonGroup } from "@mui/material";
 import { Nav } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import {
   Dropdown,
@@ -15,6 +15,8 @@ import {
 } from "reactstrap";
 
 const NavBar2 = ({ direction, ...args }) => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen1, setDropdownOpen1] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -25,7 +27,7 @@ const NavBar2 = ({ direction, ...args }) => {
   const handleLogin = () => {
     // loginUser()
     // setLogin(true)
-  }
+  };
   return (
     <div>
       <Navbar
@@ -169,7 +171,7 @@ const NavBar2 = ({ direction, ...args }) => {
           >
             {/* <NavBarLogin /> */}
             <>
-              {login ? (
+              {token ? (
                 <>
                   <div className="px-5 mt-1" style={{ display: "flex" }}>
                     <img
@@ -221,7 +223,8 @@ const NavBar2 = ({ direction, ...args }) => {
                               color="error"
                               size="small"
                               onClick={() => {
-                                setLogin(false);
+                                localStorage.clear();
+                                navigate("/login");
                               }}
                               style={{
                                 color: "black",
