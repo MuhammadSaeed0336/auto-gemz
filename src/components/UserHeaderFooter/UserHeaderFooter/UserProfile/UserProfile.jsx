@@ -8,13 +8,12 @@ import MysellPosts from "./MySellPosts";
 const UserProfile = () => {
   let [postSelect, setPostSelect] = useState(true); //if true then sell posts //if false then rent posts
 
-  let imgsrc =
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
-  let UserName = "User-Name";
-  let UserEmail = "User-Email@gmail.com";
-  let UserPhone = "000000000";
-  let UserAddress = "User-Address";
-  let activePosts = 3;
+  let imgsrc = localStorage.getItem("profileImg");
+  let UserName = localStorage.getItem("name");
+  let UserEmail = localStorage.getItem("email");
+  let UserPhone = localStorage.getItem("phone");
+  let UserAddress = localStorage.getItem("address");
+  let activePosts = localStorage.getItem("posts");
   return (
     <>
       <div className=" UserDatabg bg-secondary" style={{ marginTop: "4.5rem" }}>
@@ -58,15 +57,12 @@ const UserProfile = () => {
             >
               <h4 className="userName"> {UserName} </h4>
               <p>
-                {" "}
                 <strong>Email </strong>: {UserEmail}
               </p>
               <p>
-                {" "}
                 <strong>Phone </strong>: {UserPhone}
               </p>
               <p>
-                {" "}
                 <strong>Address </strong>: {UserAddress}
               </p>
             </div>

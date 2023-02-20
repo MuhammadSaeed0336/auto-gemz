@@ -45,7 +45,7 @@ const About = () => {
             renting cars.
           </h6>
         </div>
-        <hr style={{ boxShadow: "0px 0px 1rem 1.5rem grey" }} />
+        <hr />
 
         <div className="col-12 container mt-2">
           <div className="container section1">

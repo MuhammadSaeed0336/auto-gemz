@@ -16,8 +16,12 @@ const Unauthorized = () => {
       <h2 style={{ textTransform: "uppercase", color: "white" }}>
         You Don't have Access
       </h2>
+      <hr />
       <h3 style={{ textTransform: "uppercase", color: "white" }}>
-        Go to <Link to={"/login"}>Login</Link> Page
+        Go to <Link to={"/login"}>Login</Link>
+      </h3>
+      <h3 style={{ textTransform: "uppercase", color: "white" }}>
+        or Go <Link to={"/"}>Home</Link>
       </h3>
     </div>
   );

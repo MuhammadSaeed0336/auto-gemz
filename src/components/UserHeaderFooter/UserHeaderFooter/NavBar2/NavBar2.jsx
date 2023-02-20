@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 
 const NavBar2 = ({ direction, ...args }) => {
+  const userName =localStorage.getItem("name")
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -23,11 +24,6 @@ const NavBar2 = ({ direction, ...args }) => {
   const toggle1 = () => setDropdownOpen1((prevState) => !prevState);
   let userNavImg =
     "https://images.pexels.com/photos/11805196/pexels-photo-11805196.jpeg?auto=compress&cs=tinysrgb&w=400";
-  const [login, setLogin] = useState(false);
-  const handleLogin = () => {
-    // loginUser()
-    // setLogin(true)
-  };
   return (
     <div>
       <Navbar
@@ -189,7 +185,7 @@ const NavBar2 = ({ direction, ...args }) => {
 
                     <div className="nameAndOptions">
                       <NavDropdown
-                        title="USERNAME"
+                        title={userName}
                         id="basic-nav-dropdown"
                         className="dropdown-menu-right mt-3"
                         style={{
@@ -250,9 +246,8 @@ const NavBar2 = ({ direction, ...args }) => {
                     }}
                   >
                     <ButtonGroup variant="outlined" color="error" size="small">
-                      <NavLink to={"/login"}>
                         <Button
-                          onClick={handleLogin}
+                          onClick={()=>{navigate("/login")}}
                           style={{
                             color: "white",
                             boxShadow: "0px 0px 6px #f23500",
@@ -260,7 +255,6 @@ const NavBar2 = ({ direction, ...args }) => {
                         >
                           Login
                         </Button>
-                      </NavLink>
                       <NavLink to={"/signup"}>
                         <Button
                           style={{

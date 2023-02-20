@@ -38,10 +38,16 @@ const Auth = () => {
         const { token } = response.data;
         const { user } = response.data;
         localStorage.setItem("token", token);
-        console.log(localStorage.getItem("token"));
-        console.log(user);
-        navigate("/")
+        localStorage.setItem("name",user.name)
+        localStorage.setItem("email",user.email)
+        localStorage.setItem("address",user.address)
+        localStorage.setItem("phone", user.phone);
+        localStorage.setItem("profileImg", user.profileImg);
+        localStorage.setItem("posts", user.posts);
 
+        console.log(localStorage.getItem("email"));
+        console.log(localStorage.getItem("name"));
+        navigate("/")
         // console.log(admin.data);
         // if (
         //   (admin.data?.data.email === email) &
