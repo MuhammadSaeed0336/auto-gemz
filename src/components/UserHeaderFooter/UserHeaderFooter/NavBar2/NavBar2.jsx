@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 
 const NavBar2 = ({ direction, ...args }) => {
+  const userID = localStorage.getItem("ID");
   const userName =localStorage.getItem("name")
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -207,8 +208,8 @@ const NavBar2 = ({ direction, ...args }) => {
                         </NavDropdown.Item>
                         <NavDropdown.Item
                           as={NavLink}
-                          href="#Settings"
-                          to="/settings"
+                          to={`/settings/${userID}`}
+                            onClick={()=>{console.log(userID);}}
                         >
                           Settings
                         </NavDropdown.Item>

@@ -38,6 +38,7 @@ const Auth = () => {
         const { token } = response.data;
         const { user } = response.data;
         localStorage.setItem("token", token);
+        localStorage.setItem("ID",user._id)
         localStorage.setItem("name",user.name)
         localStorage.setItem("email",user.email)
         localStorage.setItem("address",user.address)
@@ -47,6 +48,7 @@ const Auth = () => {
 
         console.log(localStorage.getItem("email"));
         console.log(localStorage.getItem("name"));
+        console.log(localStorage.getItem("ID"));
         navigate("/")
         // console.log(admin.data);
         // if (

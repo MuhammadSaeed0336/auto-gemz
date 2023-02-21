@@ -81,7 +81,7 @@ function App() {
           />
           <Route path="/rentCar/rentOut" element={<RentOutCar />} />
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings/:id" element={<Settings />} />
         </Route>
         {/* <Route path="/" element={<Test />}>
           <Route path="/rentCar" element={<RentCar />} />
