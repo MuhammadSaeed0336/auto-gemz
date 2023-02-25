@@ -10,8 +10,10 @@ import {
 } from "reactstrap";
 import DialpadIcon from "@mui/icons-material/Dialpad";
 import { useAddUsedCarMutation } from "../../../features/cars/carSlice";
+import { useNavigate } from "react-router-dom";
 
 const PostAddForm = () => {
+  const navigate = useNavigate();
   const [addUsedCar] = useAddUsedCarMutation();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,6 +50,8 @@ const PostAddForm = () => {
       contact: contact,
       secondContact: secondContact,
     });
+    navigate("/sellCar");
+    alert("Lag Gayi sale Pa");
     // console.log(city, carInfo, enginetype, image);
   };
   return (

@@ -15,7 +15,7 @@ const UsedCarCard = () => {
         /C:\\fakepath\\/i,
         `/`
       );
-      console.log("new path", newp)
+      // console.log("new path", newp)
       return newp;
     } else {
       return path

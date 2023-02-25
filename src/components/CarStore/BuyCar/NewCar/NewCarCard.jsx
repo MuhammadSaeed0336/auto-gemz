@@ -9,7 +9,7 @@ const NewCarCard = () => {
     if (path.match(/fakepath/)) {
       // const endPath = path.split('\\')[2]
       const newp = path.replace(/C:\\fakepath\\/i, `/`);
-      console.log("new path", newp);
+      // console.log("new path", newp);
       return newp;
     } else {
       return path;
@@ -33,7 +33,7 @@ const NewCarCard = () => {
                   <CardTitle tag="h5">
                     {dat.carInfo} {dat.year}
                   </CardTitle>
-                  <img id="cardImage" className="mt-3" src={parseFilePath(dat.image)} alt="" />
+                  <img id="cardImage" className="mt-3" src={parseFilePath(dat.image)} alt="" style={{height:"8rem"}}/>
                   <div className="row">
                     <div className="col-12">
                       <small>Starting at $ {dat.price}</small>

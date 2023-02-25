@@ -16,7 +16,7 @@ import {
 
 const NavBar2 = ({ direction, ...args }) => {
   const userID = localStorage.getItem("ID");
-  const userName =localStorage.getItem("name")
+  const userName = localStorage.getItem("name");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -196,41 +196,35 @@ const NavBar2 = ({ direction, ...args }) => {
                           fontWeight: "bold",
                         }}
                       >
-                        <NavDropdown.Item href="#Profile">
-                          Notifications
-                        </NavDropdown.Item>
-                        <NavDropdown.Item
-                          as={NavLink}
-                          href="#Profile"
-                          to="/userprofile"
-                        >
+                        <NavDropdown.Item>Notifications</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/userprofile">
                           My Profile
                         </NavDropdown.Item>
                         <NavDropdown.Item
                           as={NavLink}
                           to={`/settings/${userID}`}
-                            onClick={()=>{console.log(userID);}}
+                          onClick={() => {
+                            console.log(userID);
+                          }}
                         >
                           Settings
                         </NavDropdown.Item>
                         <NavDropdown.Item>
-                          <NavLink to={"/login"}>
-                            <Button
-                              variant="outlined"
-                              color="error"
-                              size="small"
-                              onClick={() => {
-                                localStorage.clear();
-                                navigate("/login");
-                              }}
-                              style={{
-                                color: "black",
-                                boxShadow: "0px 0px 6px grey",
-                              }}
-                            >
-                              Logout
-                            </Button>
-                          </NavLink>
+                          <Button
+                            variant="outlined"
+                            color="error"
+                            size="small"
+                            onClick={() => {
+                              localStorage.clear();
+                              navigate("/login");
+                            }}
+                            style={{
+                              color: "black",
+                              boxShadow: "0px 0px 6px grey",
+                            }}
+                          >
+                            Logout
+                          </Button>
                         </NavDropdown.Item>
                       </NavDropdown>
                     </div>
@@ -247,15 +241,17 @@ const NavBar2 = ({ direction, ...args }) => {
                     }}
                   >
                     <ButtonGroup variant="outlined" color="error" size="small">
-                        <Button
-                          onClick={()=>{navigate("/login")}}
-                          style={{
-                            color: "white",
-                            boxShadow: "0px 0px 6px #f23500",
-                          }}
-                        >
-                          Login
-                        </Button>
+                      <Button
+                        onClick={() => {
+                          navigate("/login");
+                        }}
+                        style={{
+                          color: "white",
+                          boxShadow: "0px 0px 6px #f23500",
+                        }}
+                      >
+                        Login
+                      </Button>
                       <NavLink to={"/signup"}>
                         <Button
                           style={{

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import DetailsCarousel from "../NewCar/DetailsCarousel";
+// import DetailsCarousel from "../NewCar/DetailsCarousel";
 import { GiGearStickPattern } from "react-icons/gi";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocalGasStationRoundedIcon from "@mui/icons-material/LocalGasStationRounded";
@@ -98,9 +98,7 @@ const NewCarDetails = () => {
                     <small>{data?.car.description}</small>
                   </div>
                 </div>
-                <div className="col-7">
-                  <DetailsCarousel />
-                </div>
+                <div className="col-7">{/* <DetailsCarousel /> */}</div>
               </div>
               <div className="row">
                 <div className="col-12 mt-2">
@@ -113,114 +111,116 @@ const NewCarDetails = () => {
                       marginBottom: "8px",
                     }}
                   >
-                    <tr>
-                      <td></td>
-                      <td>
-                        <div className="container row">
-                          <div className=" container col-1">
-                            <GiGearStickPattern
-                              style={{
-                                fontSize: "3rem",
-                                borderRadius: "50%",
-                                padding: "0.6rem",
-                                height: "3.5rem",
-                                border: "1px solid white",
-                                width: "3.5rem",
-                                color: "white",
-                                borderLeft: "4px solid white",
-                                borderRight: "2px",
-                              }}
-                            />
-                          </div>
-                          <div className="col-9">
-                            <div
-                              className="row"
-                              style={{
-                                fontSize: "small",
-                                marginTop: "8px",
-                              }}
-                            >
-                              <div className="col-12 text-light">
-                                TRANSMISSION
-                              </div>
-                              <div className="col-12 text-light">
-                                {data?.car.transmission}
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <div className="container row">
+                            <div className=" container col-1">
+                              <GiGearStickPattern
+                                style={{
+                                  fontSize: "3rem",
+                                  borderRadius: "50%",
+                                  padding: "0.6rem",
+                                  height: "3.5rem",
+                                  border: "1px solid white",
+                                  width: "3.5rem",
+                                  color: "white",
+                                  borderLeft: "4px solid white",
+                                  borderRight: "2px",
+                                }}
+                              />
+                            </div>
+                            <div className="col-9">
+                              <div
+                                className="row"
+                                style={{
+                                  fontSize: "small",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                <div className="col-12 text-light">
+                                  TRANSMISSION
+                                </div>
+                                <div className="col-12 text-light">
+                                  {data?.car.transmission}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="container row">
-                          <div className=" container col-1">
-                            <LocalGasStationRoundedIcon
-                              style={{
-                                fontSize: "3rem",
-                                borderRadius: "50%",
-                                padding: "0.6rem",
-                                height: "3.5rem",
-                                border: "1px solid white",
-                                width: "3.5rem",
-                                color: "white",
-                                borderLeft: "4px solid white",
-                                borderRight: "2px",
-                              }}
-                            />
-                          </div>
-                          <div className="col-9">
-                            <div
-                              className="row"
-                              style={{
-                                fontSize: "small",
-                                marginTop: "8px",
-                              }}
-                            >
-                              <div className="col-12 text-light">
-                                ENGINE TYPE
-                              </div>
-                              <div className="col-12 text-light">
-                                {data?.car.enginetype}
+                        </td>
+                        <td>
+                          <div className="container row">
+                            <div className=" container col-1">
+                              <LocalGasStationRoundedIcon
+                                style={{
+                                  fontSize: "3rem",
+                                  borderRadius: "50%",
+                                  padding: "0.6rem",
+                                  height: "3.5rem",
+                                  border: "1px solid white",
+                                  width: "3.5rem",
+                                  color: "white",
+                                  borderLeft: "4px solid white",
+                                  borderRight: "2px",
+                                }}
+                              />
+                            </div>
+                            <div className="col-9">
+                              <div
+                                className="row"
+                                style={{
+                                  fontSize: "small",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                <div className="col-12 text-light">
+                                  ENGINE TYPE
+                                </div>
+                                <div className="col-12 text-light">
+                                  {data?.car.enginetype}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="container row">
-                          <div className=" container col-1">
-                            <CalendarMonthIcon
-                              style={{
-                                fontSize: "3rem",
-                                borderRadius: "50%",
-                                padding: "0.6rem",
-                                height: "3.5rem",
-                                border: "1px solid white",
-                                width: "3.5rem",
-                                color: "white",
-                                borderLeft: "4px solid white",
-                                borderRight: "2px",
-                              }}
-                            />
-                          </div>
-                          <div className="col-9">
-                            <div
-                              className="row"
-                              style={{
-                                fontSize: "small",
-                                marginTop: "8px",
-                              }}
-                            >
-                              <div className="col-12 text-light">
-                                MODEL YEAR
-                              </div>
-                              <div className="col-12 text-light">
-                                {data?.car.year}
+                        </td>
+                        <td>
+                          <div className="container row">
+                            <div className=" container col-1">
+                              <CalendarMonthIcon
+                                style={{
+                                  fontSize: "3rem",
+                                  borderRadius: "50%",
+                                  padding: "0.6rem",
+                                  height: "3.5rem",
+                                  border: "1px solid white",
+                                  width: "3.5rem",
+                                  color: "white",
+                                  borderLeft: "4px solid white",
+                                  borderRight: "2px",
+                                }}
+                              />
+                            </div>
+                            <div className="col-9">
+                              <div
+                                className="row"
+                                style={{
+                                  fontSize: "small",
+                                  marginTop: "8px",
+                                }}
+                              >
+                                <div className="col-12 text-light">
+                                  MODEL YEAR
+                                </div>
+                                <div className="col-12 text-light">
+                                  {data?.car.year}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                    </tr>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>

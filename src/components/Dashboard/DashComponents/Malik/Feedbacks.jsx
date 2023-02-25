@@ -25,7 +25,7 @@ const Feedbacks = () => {
           <div className="row">
             {data?.data.map((dat) => {
               return (
-                <div className="col-12 mt-2">
+                <div className="col-12 mt-2" key={dat._id}>
                   <div className="container card p-2 text-dark">
                     <div className="row gap-4 " style={{ textAlign: "center" }}>
                       <div className="col-3 mt-3">

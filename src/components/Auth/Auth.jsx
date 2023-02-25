@@ -46,9 +46,9 @@ const Auth = () => {
         localStorage.setItem("profileImg", user.profileImg);
         localStorage.setItem("posts", user.posts);
 
-        console.log(localStorage.getItem("email"));
-        console.log(localStorage.getItem("name"));
-        console.log(localStorage.getItem("ID"));
+        // console.log(localStorage.getItem("email"));
+        // console.log(localStorage.getItem("name"));
+        // console.log(localStorage.getItem("ID"));
         navigate("/")
         // console.log(admin.data);
         // if (

@@ -45,6 +45,7 @@ const AddCarNew = (args) => {
     });
     // console.log(carInfo,year);
     toggle()
+    alert("New Car Posted, Please refresh page")
   };
   return (
     <>
