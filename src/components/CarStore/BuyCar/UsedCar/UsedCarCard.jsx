@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { Badge, Button } from "reactstrap";
 import { useGetAllCarsQuery } from "../../../../features/cars/carSlice";
 
-const UsedCarCard = () => {
+const UsedCarCard = (p) => {
   const { data } = useGetAllCarsQuery();
-  
+  let { searchTerm } = p;
+  searchTerm = searchTerm.toLowerCase();
   // console.log("===>", data?.cars[9].image);
  
   const parseFilePath = (path) => {
@@ -26,7 +27,13 @@ const UsedCarCard = () => {
     <>
       <div className="container-fluid main" style={{ marginLeft: "1rem" }}>
         <div className="row">
-          {data?.cars.map((car,idx) => {
+          {data?.cars.filter((car) => {
+            if (searchTerm == "") {
+              return car;
+            } else if (car.carInfo.toLowerCase().includes(searchTerm)) {
+              return car;
+            }
+          }).map((car,idx) => {
             return (
               <div
                 className="col-12 mt-2 d-flex bg-light"

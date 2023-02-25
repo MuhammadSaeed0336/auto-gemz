@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Col } from "reactstrap";
 import "../BuyCar/UsedCar/UsedCar.css";
 import RentCarCard from "./RentCarCard";
 
+
 const RentYourCar = () => {
+  let [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <div className="main" style={{ marginTop: "10vh" }}>
@@ -15,9 +18,21 @@ const RentYourCar = () => {
             <small>
               Here is a list of cars available for renting in Pakistan
             </small>
+            <Col className="d-flex justify-content-center align-items-center">
+              <input
+                type="text"
+                style={{ height: "2rem", width: "12rem" }}
+                className="search-input"
+                placeholder="Search"
+                onChange={(event) => {
+                  setSearchTerm(event.target.value);
+                  console.log(searchTerm);
+                }}
+              />
+            </Col>
           </div>
           <div className="container">
-            <RentCarCard />
+            <RentCarCard searchTerm={searchTerm} />
           </div>
         </div>
       </div>

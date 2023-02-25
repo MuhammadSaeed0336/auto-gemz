@@ -43,6 +43,7 @@ const Settings = () => {
       },
     });
     alert("Updated Success");
+    console.log("Working");
   };
   return (
     <div className="mainSettingDiv">
